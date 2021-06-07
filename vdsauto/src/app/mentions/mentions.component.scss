@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $black;
+  font-size: 1vw;
+  margin-bottom: 2vw;
+}
+
+h1 {
+  font-size: 2vw;
+  text-transform: uppercase;
+  border-bottom: $blue 1px solid;
+  padding-bottom: 1vw;
+  font-family: MarketSans, sans-serif;
+}
+
+#host {
+  font-weight: bold;
+}
+
+h2 {
+  font-family: MarketSans, sans-serif;
+  font-size: 1.5vw;
+  color: $blue;
+}
+
+h3 {
+  margin-bottom: 0vw;
+  font-size: 1.25vw;
+}
+section {
+  width: 50%;
+}
+
+section > p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+}
+
+#cookies > p {
+  margin-bottom: 1vw;
+}
