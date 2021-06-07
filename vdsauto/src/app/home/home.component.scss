@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+#info-marques {
+  display: flex;
+}
+
+#presentation > span {
+  font-size: 4vw;
+  font-family: MarketSans, sans-serif;
+  color: $black;
+}
+
+#presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+#presentation {
+  height: 25vw;
+}
+
+img {
+  width: 50%;
+}
+
+h1 {
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+  font-size: 2vw;
+}
+
+#half-text-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4vw;
+  align-items: center;
+  background: $white_grey;
+}
+
+p {
+  padding: 0 2vw;
+  text-justify: inter-word;
+  text-align: justify;
+}

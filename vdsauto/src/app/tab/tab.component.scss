@@ -1,0 +1,17 @@
+@import "src/assets/css/colors";
+
+a {
+  color: $black;
+  font-size: 1.4vw;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: 0.1s;
+}
+
+a:hover {
+  transition: .15s;
+  transform: scale(1.1);
+  color: red;
+}
