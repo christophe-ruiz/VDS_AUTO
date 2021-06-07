@@ -11,6 +11,7 @@ import { TabComponent } from './tab/tab.component';
 import { ServicesComponent } from './services/services.component';
 import { TeamComponent } from './team/team.component';
 import { ContactComponent } from './contact/contact.component';
+import { ContactBarComponent } from './contact-bar/contact-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     TabComponent,
     ServicesComponent,
     TeamComponent,
-    ContactComponent
+    ContactComponent,
+    ContactBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white_grey;
+
+  height: 3vw;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $black;
+
+  height: 100%;
+  padding: 0 1vw;
+}
