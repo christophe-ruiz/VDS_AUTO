@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+h1 {
+  font-family: MarketSans, Roboto, sans-serif;
+  margin-left: 1vw;
+  font-size: 3vw;
+  cursor: pointer;
+  user-select: none;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
