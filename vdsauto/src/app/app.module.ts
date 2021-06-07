@@ -12,6 +12,8 @@ import { ServicesComponent } from './services/services.component';
 import { TeamComponent } from './team/team.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactBarComponent } from './contact-bar/contact-bar.component';
+import { FooterComponent } from './footer/footer.component';
+import { MentionsComponent } from './mentions/mentions.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ContactBarComponent } from './contact-bar/contact-bar.component';
     ServicesComponent,
     TeamComponent,
     ContactComponent,
-    ContactBarComponent
+    ContactBarComponent,
+    FooterComponent,
+    MentionsComponent
   ],
   imports: [
     BrowserModule,
