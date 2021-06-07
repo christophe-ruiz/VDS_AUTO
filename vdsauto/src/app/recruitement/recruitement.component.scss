@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+#spontaneous {
+  border-radius: 25px;
+  border: solid 2px $blue_grey;
+  margin: 0 5vw;
+  background: $white_grey;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2vw;
+}
+
+#recruitment-container {
+  margin-bottom: 2vw;
+}
+#form-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+input, textarea {
+  padding: 0.5vw;
+  border-radius: 5px;
+  border: 1px solid $black;
+  font-family: Arial, sans-serif;
+}
+
+#files > input {
+  border: none;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+strong {
+  color: red;
+  font-weight: bold;
+}
+
+#files {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+button {
+  justify-self: center;
+  font-family: MarketSans, sans-serif;
+  font-size: 1.5vw;
+  padding: .75vw;
+
+  color: $blue;
+  background: white;
+
+  border: 2px solid $black;
+  border-radius: 5px;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: .2s;
+}
+
+button:hover {
+  transition: .2s;
+  color: white;
+  background-color: $black;
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecruitementComponent } from './recruitement.component';
+import { ConsentComponent } from './consent.component';
 
-describe('RecruitementComponent', () => {
-  let component: RecruitementComponent;
-  let fixture: ComponentFixture<RecruitementComponent>;
+describe('ConsentComponent', () => {
+  let component: ConsentComponent;
+  let fixture: ComponentFixture<ConsentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecruitementComponent ]
+      declarations: [ ConsentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecruitementComponent);
+    fixture = TestBed.createComponent(ConsentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

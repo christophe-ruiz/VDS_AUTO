@@ -1,1 +1,42 @@
-<p>recruitement works!</p>
+<div id="recruitment-container">
+  <h1>Recrutement</h1>
+
+  <h2>Candidature spontanées</h2>
+  <div id="spontaneous">
+    <form>
+      <div id="form-content">
+        <label for="nom">Nom <strong>*</strong></label>
+        <input id="nom" name="nom" type="text">
+
+        <label for="prenom">Prénom <strong>*</strong></label>
+        <input id="prenom" name="prenom" type="text">
+
+        <label for="e-mail">E-mail <strong>*</strong></label>
+        <input id="e-mail" name="e-mail" type="email">
+
+        <label for="phone">Téléphone <strong>*</strong></label>
+        <input id="phone" name="phone" type="tel">
+
+        <label for="msg">Message</label>
+        <textarea name="" id="msg" cols="30" rows="10"></textarea>
+      </div>
+
+    </form>
+
+    <div id="files">
+      <label for="msg">CV</label>
+      <input id="resume" name="resume" type="file">
+
+      <label for="msg">Lettre de motivation</label>
+      <input id="cover-letter" name="cover-letter" type="file">
+    </div>
+
+    <button>Candidater</button>
+  </div>
+
+  <h3 *ngIf="this.offers.length"></h3>
+  <div *ngIf="this.offers.length" id="offres">
+
+  </div>
+
+</div>

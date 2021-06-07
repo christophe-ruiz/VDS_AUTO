@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruitementComponent implements OnInit {
 
+  public offers: string[] = []
+
   constructor() { }
 
   ngOnInit(): void {
