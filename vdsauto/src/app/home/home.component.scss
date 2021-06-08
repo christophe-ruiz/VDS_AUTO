@@ -6,21 +6,22 @@
 }
 
 #presentation > span {
-  font-size: 3vw;
+  font-size: 2vw;
   font-family: MarketSans, sans-serif;
   color: $black;
+  background: white;
+  border-radius: 5px;
+  padding: 1vw;
 }
 
 #presentation {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
-}
-
-#presentation {
-  height: 25vw;
+  //background: url("../../assets/img/garage.jpg") no-repeat fixed;
+  //background-size: cover;
+  height: 10vw;
 }
 
 img {
@@ -53,3 +54,4 @@ strong {
   font-weight: bold;
   color: $blue;
 }
+

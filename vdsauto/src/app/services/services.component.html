@@ -1,1 +1,11 @@
-<p>services works!</p>
+<main>
+  <h1> Services </h1>
+  <span> Les mécaniciens de VDS Auto réalisent toutes sortes d'intervention sur votre véhicule. </span>
+  <div id="services">
+    <div class="tile" *ngFor="let s of this.services">
+      <img src="assets/img/{{s.img}}">
+      <h2>{{s.title}}</h2>
+      <p>{{s.desc}}</p>
+    </div>
+  </div>
+</main>

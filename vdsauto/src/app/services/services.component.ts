@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TitleService} from "../../services/title.service";
+import {Service} from "../../models/service";
+import {WorkService} from "../../services/work.service";
 
 @Component({
   selector: 'app-services',
@@ -8,8 +10,12 @@ import {TitleService} from "../../services/title.service";
 })
 export class ServicesComponent implements OnInit {
 
-  constructor(private titleService: TitleService) {
+  public services: Service[] = [];
+
+  constructor(private titleService: TitleService,
+              private workService: WorkService) {
     titleService.setTitle('Services');
+    workService.services$.subscribe(s => this.services = s);
   }
 
   ngOnInit(): void {

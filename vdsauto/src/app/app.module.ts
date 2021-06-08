@@ -15,7 +15,6 @@ import { ContactBarComponent } from './contact-bar/contact-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { RecruitementComponent } from './recruitement/recruitement.component';
-import { ConsentComponent } from './consent/consent.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { ConsentComponent } from './consent/consent.component';
     ContactBarComponent,
     FooterComponent,
     MentionsComponent,
-    RecruitementComponent,
-    ConsentComponent
+    RecruitementComponent
   ],
   imports: [
     BrowserModule,

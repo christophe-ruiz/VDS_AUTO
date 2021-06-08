@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  color: $black;
+}
+
+h1 {
+  font-size: 2vw;
+  border-bottom: 1px solid $blue;
+}
+
+span {
+  font-size: 1.25vw;
+}
+
+.tile {
+  overflow: hidden;
+
+  height: 26vw;
+  width: 25vw;
+
+  border: $white_grey 2px solid;
+  border-radius: 20px;
+
+  margin-left: 2vw;
+  margin-top: 2vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.tile > img {
+  width: 100%;
+}
+
+.tile > h2 {
+  font-size: 1.75vw;
+  padding-bottom: 0.25vw;
+  border-bottom: 1px solid $blue;
+  width: fit-content;
+  margin-top: 0.5vw;
+  margin-bottom: 0;
+}
+
+.tile > h2, p {
+  margin-left: 1vw;
+}
+.tile > p {
+  text-align: justify;
+  font-size: 1vw;
+  margin-right: 1.5vw;
+}
+
+
+#services {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4vw;
+  justify-content: center;
+}
