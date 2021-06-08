@@ -19,6 +19,14 @@ export class ServicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let scrollToTop = window.setInterval(() => {
+      let pos = window.pageYOffset;
+      if (pos > 0) {
+        window.scrollTo(0, pos - 30);
+      } else {
+        window.clearInterval(scrollToTop);
+      }
+    }, 1);
   }
 
 }

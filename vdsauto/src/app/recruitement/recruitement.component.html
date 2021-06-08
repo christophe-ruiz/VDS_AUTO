@@ -1,34 +1,36 @@
-<div id="recruitment-container">
+<main id="recruitment-container">
   <h1>Recrutement</h1>
 
   <h2>Candidature spontanées</h2>
   <div id="spontaneous">
     <form>
       <div id="form-content">
-        <label for="nom">Nom <strong>*</strong></label>
-        <input id="nom" name="nom" type="text">
+        <label for="nom">Nom <b>*</b></label>
+        <input [class.is-invalid]="true" id="nom" name="nom" type="text">
 
-        <label for="prenom">Prénom <strong>*</strong></label>
+        <label for="prenom">Prénom <b>*</b></label>
         <input id="prenom" name="prenom" type="text">
 
-        <label for="e-mail">E-mail <strong>*</strong></label>
+        <label for="e-mail">E-mail <b>*</b></label>
         <input id="e-mail" name="e-mail" type="email">
 
-        <label for="phone">Téléphone <strong>*</strong></label>
+        <label for="phone">Téléphone <b>*</b></label>
         <input id="phone" name="phone" type="tel">
 
-        <label for="msg">Message</label>
+        <label for="msg">Message </label>
         <textarea name="" id="msg" cols="30" rows="10"></textarea>
       </div>
 
     </form>
 
     <div id="files">
-      <label for="msg">CV</label>
+      <label for="msg">CV <b>*</b></label>
       <input id="resume" name="resume" type="file">
 
-      <label for="msg">Lettre de motivation</label>
+      <label for="msg">Lettre de motivation <b>*</b></label>
       <input id="cover-letter" name="cover-letter" type="file">
+
+      <p id="hint-star"><b>*</b> : champs obligatoire.</p>
     </div>
 
     <button>Candidater</button>
@@ -39,4 +41,4 @@
 
   </div>
 
-</div>
+</main>

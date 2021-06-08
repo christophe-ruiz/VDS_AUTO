@@ -3,18 +3,36 @@
 
 #spontaneous {
   border-radius: 25px;
-  border: solid 2px $blue_grey;
+  border: solid 3px $white_grey;
   margin: 0 5vw;
-  background: $white_grey;
+  background: white;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 2vw;
+
+  color: $black;
 }
 
 #recruitment-container {
   margin-bottom: 2vw;
+  display: flex;
+  flex-direction: column;
 }
+
+h1 {
+  align-self: center;
+  font-size: 2vw;
+  border-bottom: 1px $blue solid;
+}
+
+h2 {
+  margin-left: 5vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+  font-size: 1.5vw;
+}
+
 #form-content {
   display: flex;
   flex-direction: column;
@@ -28,6 +46,16 @@ input, textarea {
   font-family: Arial, sans-serif;
 }
 
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 5vw;
+  height: 10vw;
+  max-height: 15vw;
+  text-align: justify;
+  box-sizing: border-box;
+}
+
 #files > input {
   border: none;
 }
@@ -38,7 +66,7 @@ form {
   justify-content: center;
 }
 
-strong {
+b {
   color: red;
   font-weight: bold;
 }
@@ -64,6 +92,8 @@ button {
   cursor: pointer;
   user-select: none;
 
+  margin-top: 2vw;
+
   transition: .2s;
 }
 
@@ -71,4 +101,12 @@ button:hover {
   transition: .2s;
   color: white;
   background-color: $black;
+}
+
+label {
+  font-size: 1vw;
+  font-weight: lighter;
+}
+#hint-star {
+  font-size: 1vw;
 }
