@@ -23,7 +23,11 @@
 h1 {
   align-self: center;
   font-size: 2vw;
-  border-bottom: 1px $blue solid;
+  border-bottom: 1px $mid_red solid;
+}
+
+#hint-files {
+  font-size: 1vw;
 }
 
 h2 {
@@ -66,6 +70,37 @@ form {
   justify-content: center;
 }
 
+#errors {
+  align-self: center;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.error::before {
+  content: "⚠️";
+  position: relative;
+  top: -0.1vw;
+  font-size: 1.1vw;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  background: $red;
+  border: 2px solid $black;
+  border-radius: 5px;
+  padding: 0.5vw;
+
+  font-size: 1.1vw;
+
+  margin: 0;
+  margin-bottom: 1vw;
+}
+
 b {
   color: red;
   font-weight: bold;
@@ -86,7 +121,7 @@ button {
   color: $blue;
   background: white;
 
-  border: 2px solid $black;
+  border: 3px solid $blue;
   border-radius: 5px;
 
   cursor: pointer;
@@ -101,6 +136,7 @@ button:hover {
   transition: .2s;
   color: white;
   background-color: $black;
+  border-color: $white_grey;
 }
 
 label {

@@ -1,40 +1,51 @@
 <main id="recruitment-container">
   <h1>Recrutement</h1>
 
-  <h2>Candidature spontanées</h2>
+  <div id="errors">
+    <p class="error">Le nom doit être renseigné</p>
+    <p class="error">Le prénom doit être renseigné</p>
+  </div>
+  <h2>Candidature spontanée</h2>
   <div id="spontaneous">
-    <form>
+    <form [formGroup]="spontaneousForm">
       <div id="form-content">
         <label for="nom">Nom <b>*</b></label>
-        <input [class.is-invalid]="true" id="nom" name="nom" type="text">
+        <input formControlName="nom" id="nom" name="nom" type="text">
 
         <label for="prenom">Prénom <b>*</b></label>
-        <input id="prenom" name="prenom" type="text">
+        <input formControlName="prenom" id="prenom" name="prenom" type="text">
 
         <label for="e-mail">E-mail <b>*</b></label>
-        <input id="e-mail" name="e-mail" type="email">
+        <input formControlName="email" id="e-mail" name="e-mail" type="email">
 
         <label for="phone">Téléphone <b>*</b></label>
-        <input id="phone" name="phone" type="tel">
+        <input formControlName="phone" id="phone" name="phone" type="tel">
 
         <label for="msg">Message </label>
-        <textarea name="" id="msg" cols="30" rows="10"></textarea>
+        <textarea formControlName="msg" name="" id="msg" cols="30" rows="10"></textarea>
       </div>
 
     </form>
 
-    <div id="files">
+    <div id="files" [formGroup]="spontaneousForm">
       <label for="msg">CV <b>*</b></label>
-      <input id="resume" name="resume" type="file">
+      <input (change)="handleFile($event, ft.RESUME)" accept="application/pdf" formControlName="resume" id="resume" name="resume" type="file">
 
       <label for="msg">Lettre de motivation <b>*</b></label>
-      <input id="cover-letter" name="cover-letter" type="file">
+      <input (change)="handleFile($event, ft.COVERLETTER)" accept="application/pdf" formControlName="coverletter" id="cover-letter" name="cover-letter" type="file">
 
+      <p id="hint-files">La taille totale des fichiers doit être inférieure à 25mo.</p>
       <p id="hint-star"><b>*</b> : champs obligatoire.</p>
     </div>
 
     <button>Candidater</button>
   </div>
+
+
+  <p>Form value: {{ spontaneousForm.value | json }}</p>
+  <p>Form status: {{ spontaneousForm.status | json }}</p>
+  <p>Form status: {{ spontaneousForm.value.resume | json }}</p>
+  <p>Form status: {{ spontaneousForm.value.coverletter | json }}</p>
 
   <h3 *ngIf="this.offers.length"></h3>
   <div *ngIf="this.offers.length" id="offres">
