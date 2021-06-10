@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TitleService} from "../../services/title.service";
+import {TeamService} from "../../services/team.service";
+import {Mechanic} from "../../models/mechanic";
 
 @Component({
   selector: 'app-team',
@@ -8,8 +10,11 @@ import {TitleService} from "../../services/title.service";
 })
 export class TeamComponent implements OnInit {
 
-  constructor(private titleService: TitleService) {
+  public team!: Mechanic[];
+
+  constructor(private titleService: TitleService, private teamService: TeamService) {
     titleService.setTitle("L'équipe");
+    this.teamService.team$.subscribe(t => this.team = t);
   }
 
   ngOnInit(): void {
