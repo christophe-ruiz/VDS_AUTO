@@ -3,9 +3,19 @@
 
   <span>{{spontaneousForm.errors}}</span>
 
-  <div id="errors" *ngIf="spontaneousForm.status === 'INVALID'">
-    <p class="error" *ngIf="spontaneousForm.errors">Le nom doit être renseigné</p>
+  <div class="errors" *ngIf="spontaneousForm.status === 'INVALID'">
+    <p class="error">Le nom doit être renseigné</p>
     <p class="error">Le prénom doit être renseigné</p>
+    <p class="error">L'adresse e-mail doit être renseignée</p>
+    <p class="error">Le numéro de téléphone doit être renseigné</p>
+    <p class="error">Le CV doit être renseigné</p>
+    <p class="error">La lettre de motivation doit être renseignée</p>
+  </div>
+  <div class="errors" *ngIf="spontaneousForm.status === 'DIRTY'">
+    <p class="error">Le nom est dans un format incorrect</p>
+    <p class="error">Le prénom est dans un format incorrect</p>
+    <p class="error">L'adresse e-mail est dans un format incorrect</p>
+    <p class="error">Le numéro de téléphone est dans un format incorrect</p>
   </div>
   <h2>Candidature spontanée</h2>
   <div id="spontaneous">
