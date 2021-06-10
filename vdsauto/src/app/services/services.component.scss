@@ -32,6 +32,13 @@ span {
 
   display: flex;
   flex-direction: column;
+
+  transition: 0.1s;
+}
+
+.tile:hover {
+  transition: 0.1s;
+  transform: scale(1.025);
 }
 
 .tile > img {
