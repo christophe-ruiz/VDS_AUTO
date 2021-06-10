@@ -1,8 +1,10 @@
 <main id="recruitment-container">
   <h1>Recrutement</h1>
 
-  <div id="errors">
-    <p class="error">Le nom doit être renseigné</p>
+  <span>{{spontaneousForm.errors}}</span>
+
+  <div id="errors" *ngIf="spontaneousForm.status === 'INVALID'">
+    <p class="error" *ngIf="spontaneousForm.errors">Le nom doit être renseigné</p>
     <p class="error">Le prénom doit être renseigné</p>
   </div>
   <h2>Candidature spontanée</h2>
