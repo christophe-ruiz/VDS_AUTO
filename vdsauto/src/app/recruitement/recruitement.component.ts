@@ -14,15 +14,17 @@ enum FileType {
 export class RecruitementComponent implements OnInit {
   readonly ft = FileType;
 
+  public requestedFormValidation: boolean = false;
+
   public spontaneousForm !: FormGroup;
   public offers: string[] = []
 
   constructor(private fb: FormBuilder) {
     this.spontaneousForm = this.fb.group({
-      nom:          ['', Validators.required ],
-      prenom:       ['', Validators.required ],
+      nom:          ['', Validators.pattern(/^[a-z ,.'-]+$/i) ],
+      prenom:       ['', Validators.pattern(/^[a-z ,.'-]+$/i)],
       email:        ['', Validators.email ],
-      phone:        ['', Validators.required ],
+      phone:        ['', [Validators.required, Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)] ],
       msg:          [''],
       resume:       ['', Validators.required],
       coverletter:  ['', Validators.required]
@@ -46,6 +48,11 @@ export class RecruitementComponent implements OnInit {
       }
     }
     else console.log("file is null")
+  }
+
+  requestFormValidation () :void {
+    this.requestedFormValidation = true;
+    console.log(this.requestedFormValidation)
   }
 
 }
