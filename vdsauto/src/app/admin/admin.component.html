@@ -1,0 +1,27 @@
+<main>
+  <h1>Panneau d'administration</h1>
+  <section>
+    <h2>Équipe</h2>
+    <button id="add"> Ajouter </button>
+    <div id="team-container">
+      <div *ngFor="let m of team" class="mate">
+        <div class="actions">
+          <p id="cross">&#x2716;</p>
+        </div>
+        <div class="field">
+          <label for="prenom">Prénom</label>
+          <input id="prenom" value="{{m.prenom}}" type="text">
+        </div>
+        <div class="field">
+          <label for="nom">Nom</label>
+          <input id="nom" value="{{m.nom}}" type="text">
+        </div>
+        <div class="field">
+          <label for="title">Titre</label>
+          <input id="title" value="{{m.title}}" type="text">
+        </div>
+      </div>
+    </div>
+    <button id="save">Sauvegarder</button>
+  </section>
+</main>

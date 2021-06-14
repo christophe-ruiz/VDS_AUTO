@@ -19,6 +19,7 @@ import { ConsentComponent } from './consent/consent.component';
 import { ApplyComponent } from './recruitement/apply/apply.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {HttpClientModule} from "@angular/common/http";
     RecruitementComponent,
     ConsentComponent,
     ApplyComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {ContactComponent} from "./contact/contact.component";
 import {ServicesComponent} from "./services/services.component";
 import {MentionsComponent} from "./mentions/mentions.component";
 import {RecruitementComponent} from "./recruitement/recruitement.component";
+import {AdminComponent} from "./admin/admin.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'services', component:ServicesComponent },
   { path: 'recrutement', component:RecruitementComponent },
   { path: 'mentions-legales', component:MentionsComponent },
+  { path: 'admin', component:AdminComponent },
   { path: 'home', redirectTo:'' },
   { path: '**', redirectTo:'' },
 ];
