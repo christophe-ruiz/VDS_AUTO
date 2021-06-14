@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ApplicationService} from "../../services/application.service";
 
 enum FileType {
   RESUME,
@@ -19,7 +20,7 @@ export class RecruitementComponent implements OnInit {
   public spontaneousForm !: FormGroup;
   public offers: string[] = []
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private applicationService: ApplicationService) {
     this.spontaneousForm = this.fb.group({
       nom:          ['', Validators.pattern(/^[a-z ,.'-]+$/i) ],
       prenom:       ['', Validators.pattern(/^[a-z ,.'-]+$/i)],
@@ -34,15 +35,21 @@ export class RecruitementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upload() {
+    if (this.spontaneousForm.invalid) return;
+    this.applicationService.uploadApplication(this.spontaneousForm.value);
+  }
+
   handleFile(e: any, f: FileType) {
     if (e.target.files.length > 0) {
-      const file = e.target.files[0];
+      const file: File = e.target.files[0];
+      console.log(file)
       if (f === FileType.RESUME) {
-        this.spontaneousForm.setValue({
+        this.spontaneousForm.patchValue({
           resume: file
         });
       } else if (f === FileType.COVERLETTER) {
-        this.spontaneousForm.setValue({
+        this.spontaneousForm.patchValue({
           coverletter: file
         })
       }
@@ -53,6 +60,12 @@ export class RecruitementComponent implements OnInit {
   requestFormValidation () :void {
     this.requestedFormValidation = true;
     console.log(this.requestedFormValidation)
+
+    if (this.spontaneousForm.valid) {
+      this.upload();
+      this.spontaneousForm.reset()
+      this.requestedFormValidation = false;
+    }
   }
 
 }

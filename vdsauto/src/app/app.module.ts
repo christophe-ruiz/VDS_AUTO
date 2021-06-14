@@ -18,6 +18,7 @@ import { RecruitementComponent } from './recruitement/recruitement.component';
 import { ConsentComponent } from './consent/consent.component';
 import { ApplyComponent } from './recruitement/apply/apply.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,13 +35,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     MentionsComponent,
     RecruitementComponent,
     ConsentComponent,
-    ApplyComponent
+    ApplyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
