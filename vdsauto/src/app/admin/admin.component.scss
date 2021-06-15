@@ -53,20 +53,28 @@ button {
 
 #add {
   margin-bottom: 1vw;
-  border: 1px solid $black;
+  background: $blue;
+  color: $white_grey;
+  border: 1px solid $white_grey;
+}
+
+#add:hover {
+  background-color: $white_grey;
+  color: $blue;
+  border-color: $blue;
 }
 
 #save {
   align-self: center;
-  background: $blue;
+  background: $mid_green;
   color: $white_grey;
 }
 
 #save:hover {
   transition: 0.2s;
   background-color: $white_grey;
-  color: $blue;
-  border: 1px $blue solid;
+  color: $mid-green;
+  border: 1px $mid_green solid;
 }
 
 .actions {

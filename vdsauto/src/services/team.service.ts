@@ -13,5 +13,22 @@ export class TeamService {
   ]
   public team$ :BehaviorSubject<Mechanic[]> = new BehaviorSubject<Mechanic[]>(this.defaultTeam)
 
-  constructor() { }
+  constructor() {
+    setInterval(() => {
+      console.log(this.team$.value)
+    }, 1000)
+  }
+
+  delMate(m: Mechanic) {
+    let l = this.team$.value
+    const index = l.indexOf(m);
+    if (index > -1) {
+      l.splice(index, 1);
+    }
+  }
+
+  newMate() {
+    let now = this.team$.value
+    now.push(new Mechanic())
+  }
 }

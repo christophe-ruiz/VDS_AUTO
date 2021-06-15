@@ -4,6 +4,7 @@ import {TeamService} from "../../services/team.service";
 import {WorkService} from "../../services/work.service";
 import {Mechanic} from "../../models/mechanic";
 import {Service} from "../../models/service";
+import {TitleService} from "../../services/title.service";
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +17,8 @@ export class AdminComponent implements OnInit {
 
   constructor(private contactInfoService: ContactInfoService,
               private teamService: TeamService,
-              private workService: WorkService) {
+              private workService: WorkService,
+              private titleService: TitleService) {
     this.teamService.team$.subscribe(m => {
       this.team = m;
     })
@@ -26,6 +28,15 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Administration')
+  }
+
+  newMate(): void {
+    this.teamService.newMate()
+  }
+
+  delMate(m: Mechanic):void {
+    this.teamService.delMate(m);
   }
 
 }

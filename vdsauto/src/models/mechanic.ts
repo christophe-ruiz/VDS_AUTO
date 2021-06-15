@@ -1,7 +1,10 @@
 export class Mechanic {
-  constructor(public nom: string,
-              public prenom: string,
-              public title:string,
-              public avi: string) {
+  public id = 0;
+
+  constructor(public nom: string = "",
+              public prenom: string = "",
+              public title:string = "",
+              public avi: string = "",) {
+    this.id = Date.now();
   }
 }

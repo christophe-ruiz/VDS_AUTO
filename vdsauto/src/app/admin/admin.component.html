@@ -2,11 +2,11 @@
   <h1>Panneau d'administration</h1>
   <section>
     <h2>Équipe</h2>
-    <button id="add"> Ajouter </button>
+    <button id="add" (click)="newMate()"> Ajouter </button>
     <div id="team-container">
       <div *ngFor="let m of team" class="mate">
         <div class="actions">
-          <p id="cross">&#x2716;</p>
+          <p id="cross" (click)="delMate(m)">&#x2716;</p>
         </div>
         <div class="field">
           <label for="prenom">Prénom</label>
