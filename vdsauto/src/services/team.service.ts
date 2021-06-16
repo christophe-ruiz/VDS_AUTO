@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {Mechanic} from "../models/mechanic";
 import {HttpClient} from "@angular/common/http";
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import Swal from "sweetalert2";
 
 
 @Injectable({
@@ -39,6 +40,18 @@ export class TeamService {
       console.log({team: this.team$.value})
       console.log("FROM SERVER: ")
       console.log(res)
-    });
+
+      Swal.fire({
+        icon: "success",
+        title: "Succès",
+        text: "L'équipe a été mise à jour."
+      });
+    }, e => {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Impossible de mettre à jour l'équipe. Message d'erreur : " + e.message
+      });
+    })
   }
 }

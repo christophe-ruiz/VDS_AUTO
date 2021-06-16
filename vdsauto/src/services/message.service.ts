@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
-import {BehaviorSubject, Subject} from "rxjs";
+import { Subject} from "rxjs";
+import Swal from "sweetalert2";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,18 @@ export class MessageService {
   send(msg: string): void {
     this.http.put<string>(this.msgUrl, {msg: msg}, httpOptionsBase).subscribe(m => {
       this.msg$.next(m);
-    });
+
+      Swal.fire({
+        icon: "success",
+        title: "Succès",
+        text: "Le message a été publié."
+      });
+    }, e => {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Impossible de publier le message. Message d'erreur : " + e.message
+      });
+    })
   }
 }

@@ -67,7 +67,6 @@ export class AdminComponent implements OnInit {
   }
 
   delMate(m: Mechanic):void {
-    // Swal.fire()
     this.teamService.delMate(m);
   }
 

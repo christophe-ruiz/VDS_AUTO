@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {Contacts} from "../models/contacts";
+import Swal from "sweetalert2";
 
 
 @Injectable({
@@ -29,6 +30,18 @@ export class ContactInfoService {
       this.num$.next(c.phone);
       this.mail$.next(c.mail);
       this.hours$.next(c.hours);
+
+      Swal.fire({
+        icon: "success",
+        title: "Succès",
+        text: "Les informations de contact ont été mises à jour."
+      });
+    }, e => {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Impossible de mettre à jour les informations de contact. Message d'erreur : " + e.message
+      });
     })
   }
 }
