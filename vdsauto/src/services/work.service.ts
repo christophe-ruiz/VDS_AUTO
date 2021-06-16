@@ -8,6 +8,7 @@ import {Service} from "../models/service";
 export class WorkService {
 
   readonly services: Service[] = [
+    new Service('Climatisation', 'La climatisation de votre véhicule est rechargée.', "clim.png"),
     new Service('Diagnostic', 'Nos mécaniciens identifient les anomalies sur votre véhicule.', "vidange.jpg"),
     new Service('Électronique', 'Votre véhicule est inspecté à l\'aide d\'un ordinateur afin de réaliser des réglages électroniques.', "vidange.jpg"),
     new Service('Freins', 'Les composants assurant le bon freinage du véhicule sont remplacés.', "vidange.jpg"),

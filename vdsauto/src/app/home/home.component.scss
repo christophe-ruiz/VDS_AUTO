@@ -34,7 +34,7 @@ h1 {
   font-size: 2vw;
 }
 
-#half-text-container {
+.half-text-container {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -45,9 +45,10 @@ h1 {
 }
 
 p {
-  padding: 0 2vw;
+  padding: 0 6vw;
   text-justify: inter-word;
   text-align: justify;
+  font-size: 1vw;
 }
 
 strong {
@@ -55,3 +56,33 @@ strong {
   color: $blue;
 }
 
+#services {
+  height: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#services > button {
+  border: 2px solid $white_grey;
+  font-size: 1.5vw;
+  border-radius: 5px;
+  padding: 0.5vw;
+  cursor: pointer;
+
+  background: $red;
+  color: white;
+  transition: 0.2s;
+}
+
+#services > p {
+  font-size: 2vw;
+}
+
+#services > button:hover {
+  border-color: $red;
+  color: $red;
+  background: white;
+  transition: 0.2s;
+}

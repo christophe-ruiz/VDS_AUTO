@@ -1,0 +1,165 @@
+@charset "UTF-8";
+@import "../../assets/css/colors";
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  align-self: center;
+  font-size: 2.5vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+  border-bottom: 1px solid $mid_red;
+}
+
+h2 {
+  font-size: 1.5vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+}
+
+input {
+  font-size: 1vw;
+  border-radius: 5px;
+  padding: 0.5vw;
+  border: 1px solid $black;
+}
+
+section {
+  margin: 1vw 3vw;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+
+
+button {
+
+  padding: 0.75vw;
+  border-radius: 10px;
+  border: 1px $white_grey solid;
+  font-size: 1vw;
+  transition: 0.2s;
+
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#add {
+  margin-bottom: 1vw;
+  background: $blue;
+  color: $white_grey;
+  border: 1px solid $white_grey;
+}
+
+#add:hover {
+  background-color: $white_grey;
+  color: $blue;
+  border-color: $blue;
+}
+
+.save {
+  align-self: center;
+  background: $mid_green;
+  color: $white_grey;
+}
+
+.save:hover {
+  transition: 0.2s;
+  background-color: $white_grey;
+  color: $mid-green;
+  border: 1px $mid_green solid;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cross {
+  color: $light_red;
+  font-size: 1.5vw;
+  padding: 0;
+  margin: 0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+#cross:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.mate, section {
+  border: 2px solid $white_grey;
+  border-radius: 10px;
+  padding: 1vw;
+}
+
+.desc {
+  font-size: 1vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+}
+
+.desc > a {
+  text-decoration: none;
+  color: $blue;
+  font-weight: bold;
+}
+
+.mate:not(:last-child) {
+  margin-right: 2vw;
+}
+
+#team-container {
+  display: flex;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  color: $black;
+}
+
+label {
+  font-size: 1vw;
+  margin-top: .75vw;
+}
+
+.header-container > fa-icon {
+  margin-left: 1vw;
+  font-size: 1.2vw;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+#msg-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: .75vw;
+}
+
+#msg-container > input {
+  border: 2px solid $cool_grey;
+  color: $black;
+  font-size: 1vw;
+  margin-right: 1.5vw;
+  width: 100%;
+}

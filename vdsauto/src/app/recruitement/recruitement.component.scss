@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+#spontaneous {
+  border-radius: 25px;
+  border: solid 3px $white_grey;
+  margin: 0 5vw;
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2vw;
+
+  color: $black;
+}
+
+#recruitment-container {
+  margin-bottom: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  align-self: center;
+  font-size: 2vw;
+  border-bottom: 1px $mid_red solid;
+}
+
+#hint-files {
+  font-size: 1vw;
+}
+
+h2 {
+  margin-left: 5vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
+  font-size: 1.5vw;
+}
+
+#form-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+input, textarea {
+  padding: 0.5vw;
+  border-radius: 5px;
+  border: 1px solid $black;
+  font-family: Arial, sans-serif;
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 5vw;
+  height: 10vw;
+  max-height: 15vw;
+  text-align: justify;
+  box-sizing: border-box;
+}
+
+#files > input {
+  border: none;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.errors {
+  align-self: center;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.error::before {
+  content: "⚠️";
+  position: relative;
+  top: -0.1vw;
+  font-size: 1.1vw;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  background: $red;
+  border: 2px solid $black;
+  border-radius: 5px;
+  padding: 0.5vw;
+
+  font-size: 1.1vw;
+
+  margin: 0;
+  margin-bottom: 1vw;
+}
+
+b {
+  color: red;
+  font-weight: bold;
+}
+
+#files {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+button {
+  justify-self: center;
+  font-family: MarketSans, sans-serif;
+  font-size: 1.5vw;
+  padding: .75vw;
+
+  color: $blue;
+  background: white;
+
+  border: 3px solid $blue;
+  border-radius: 5px;
+
+  cursor: pointer;
+  user-select: none;
+
+  margin-top: 2vw;
+
+  transition: .2s;
+}
+
+button:hover {
+  transition: .2s;
+  color: white;
+  background-color: $black;
+  border-color: $white_grey;
+}
+
+label {
+  font-size: 1vw;
+  font-weight: lighter;
+}
+#hint-star {
+  font-size: 1vw;
+}

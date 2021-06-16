@@ -1,0 +1,14 @@
+[
+  {
+    "nom": "NomUn",
+    "prenom": "PrenomUn",
+    "title": "Mécanicien",
+    "avi": "avatar.png"
+  },
+  {
+    "nom": "NomDeux",
+    "prenom": "PrenomDeux",
+    "title": "Mécanicien",
+    "avi": "avatar.png"
+  }
+]

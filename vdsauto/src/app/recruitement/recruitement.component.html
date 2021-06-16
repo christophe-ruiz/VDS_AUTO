@@ -1,1 +1,61 @@
-<p>recruitement works!</p>
+<main id="recruitment-container">
+  <h1>Recrutement</h1>
+
+  <span>{{spontaneousForm.errors}}</span>
+
+  <div class="errors" *ngIf="spontaneousForm.status === 'INVALID' && requestedFormValidation">
+    <p class="error" *ngIf="spontaneousForm.controls['nom'].pristine">Le nom doit être renseigné</p>
+    <p class="error" *ngIf="spontaneousForm.controls['prenom'].pristine">Le prénom doit être renseigné</p>
+    <p class="error" *ngIf="spontaneousForm.controls['email'].pristine">L'adresse e-mail doit être renseignée</p>
+    <p class="error" *ngIf="spontaneousForm.controls['phone'].pristine">Le numéro de téléphone doit être renseigné</p>
+    <p class="error" *ngIf="spontaneousForm.controls['resume'].pristine">Le CV doit être renseigné</p>
+    <p class="error" *ngIf="spontaneousForm.controls['coverletter'].pristine">La lettre de motivation doit être renseignée</p>
+  </div>
+  <div class="errors" *ngIf="spontaneousForm.status === 'INVALID' && requestedFormValidation">
+    <p class="error" *ngIf="spontaneousForm.controls['nom'].invalid && !spontaneousForm.controls['nom'].pristine">Le nom est dans un format incorrect</p>
+    <p class="error" *ngIf="spontaneousForm.controls['prenom'].invalid && !spontaneousForm.controls['prenom'].pristine">Le prénom est dans un format incorrect</p>
+    <p class="error" *ngIf="spontaneousForm.controls['email'].invalid && !spontaneousForm.controls['email'].pristine">L'adresse e-mail est dans un format incorrect</p>
+    <p class="error" *ngIf="spontaneousForm.controls['phone'].invalid && !spontaneousForm.controls['phone'].pristine">Le numéro de téléphone est dans un format incorrect</p>
+  </div>
+  <h2>Candidature spontanée</h2>
+  <div id="spontaneous">
+    <form [formGroup]="spontaneousForm" enctype="multipart/form-data">
+      <div id="form-content">
+        <label for="nom">Nom <b>*</b></label>
+        <input formControlName="nom" id="nom" name="nom" type="text">
+
+        <label for="prenom">Prénom <b>*</b></label>
+        <input formControlName="prenom" id="prenom" name="prenom" type="text">
+
+        <label for="e-mail">E-mail <b>*</b></label>
+        <input formControlName="email" id="e-mail" name="e-mail" type="email">
+
+        <label for="phone">Téléphone <b>*</b></label>
+        <input formControlName="phone" id="phone" name="phone" type="tel">
+
+        <label for="msg">Message </label>
+        <textarea formControlName="msg" name="" id="msg" cols="30" rows="10"></textarea>
+      </div>
+
+    </form>
+
+    <div id="files" [formGroup]="spontaneousForm">
+      <label for="msg">CV <b>*</b></label>
+      <input (change)="handleFile($event, ft.RESUME)" accept="application/pdf" formControlName="resume" id="resume" name="resume" type="file">
+
+      <label for="msg">Lettre de motivation <b>*</b></label>
+      <input (change)="handleFile($event, ft.COVERLETTER)" accept="application/pdf" formControlName="coverletter" id="cover-letter" name="cover-letter" type="file">
+
+      <p id="hint-files">La taille totale des fichiers doit être inférieure à 25mo.</p>
+      <p id="hint-star"><b>*</b> : champ obligatoire.</p>
+    </div>
+
+    <button (click)="requestFormValidation()">Candidater</button>
+  </div>
+
+  <h3 *ngIf="this.offers.length"></h3>
+  <div *ngIf="this.offers.length" id="offres">
+
+  </div>
+
+</main>

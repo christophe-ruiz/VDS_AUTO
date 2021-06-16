@@ -13,7 +13,6 @@ export class TabListComponent implements OnInit {
     new Tab('services', "Services"),
     new Tab('equipe', "L'équipe"),
     new Tab('recrutement', "Recrutement"),
-    new Tab('contact', "Contacter")
   ]
 
   constructor() { }

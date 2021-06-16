@@ -11,7 +11,7 @@ main {
 
 h1 {
   font-size: 2vw;
-  border-bottom: 1px solid $blue;
+  border-bottom: 1px solid $mid_red;
 }
 
 span {
@@ -20,6 +20,7 @@ span {
 
 .tile {
   overflow: hidden;
+  position: relative;
 
   height: 26vw;
   width: 25vw;
@@ -32,13 +33,27 @@ span {
 
   display: flex;
   flex-direction: column;
+
+  transition: 0.1s;
+}
+
+.tile:hover {
+  transition: 0.1s;
+  transform: scale(1.025);
 }
 
 .tile > img {
-  width: 100%;
+  max-height: 60%;
+  min-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
 }
 
-.tile > h2 {
+#desc {
+  height: 40%;
+}
+
+#desc > h2 {
   font-size: 1.75vw;
   padding-bottom: 0.25vw;
   border-bottom: 1px solid $blue;
@@ -47,10 +62,10 @@ span {
   margin-bottom: 0;
 }
 
-.tile > h2, p {
+#desc > h2, p {
   margin-left: 1vw;
 }
-.tile > p {
+#desc > p {
   text-align: justify;
   font-size: 1vw;
   margin-right: 1.5vw;
