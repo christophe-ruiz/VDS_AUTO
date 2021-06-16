@@ -10,7 +10,6 @@ import { TabListComponent } from './tab-list/tab-list.component';
 import { TabComponent } from './tab-list/tab/tab.component';
 import { ServicesComponent } from './services/services.component';
 import { TeamComponent } from './team/team.component';
-import { ContactComponent } from './contact/contact.component';
 import { ContactBarComponent } from './contact-bar/contact-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
@@ -32,7 +31,6 @@ import { MessageComponent } from './home/message/message.component';
     TabComponent,
     ServicesComponent,
     TeamComponent,
-    ContactComponent,
     ContactBarComponent,
     FooterComponent,
     MentionsComponent,
