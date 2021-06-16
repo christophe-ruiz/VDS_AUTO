@@ -9,7 +9,7 @@ import {Mechanic} from "../../models/mechanic";
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
-
+  years: number = new Date().getFullYear() - 2006;
   public team!: Mechanic[];
 
   constructor(private titleService: TitleService, private teamService: TeamService) {
