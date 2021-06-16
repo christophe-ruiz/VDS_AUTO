@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {httpOptionsBase, serverUrl} from "../configs/server.config";
-import {BehaviorSubject} from "rxjs";
-import {SessionService} from "./session.service";
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
   readonly msgUrl: string = serverUrl + '/messages'
-  public msg$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  public msg$: Subject<string> = new Subject<string>();
 
-  constructor(private http: HttpClient,
-              private sessionService: SessionService) {
+  constructor(private http: HttpClient) {
     this.get();
   }
 

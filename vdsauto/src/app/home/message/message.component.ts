@@ -29,20 +29,24 @@ export class MessageComponent implements OnInit {
 
   constructor(private msgService: MessageService,
               private sessionService: SessionService) {
-  }
-
-  ngOnInit(): void {
     this.sessionService.hideMsg$.subscribe(h => {
       this.hide = h;
     });
 
     this.msgService.msg$.subscribe(m => {
       this.msg = m;
+      if (this.msg !== this.sessionService.get('hiddenMsg')) {
+        this.sessionService.set("hideMsg", false);
+      }
     });
+  }
+
+  ngOnInit(): void {
   }
 
   hideMsg(): void {
     this.sessionService.set('hideMsg', true);
+    this.sessionService.set('hiddenMsg', this.msg);
   }
 
 }
