@@ -36,8 +36,13 @@ export class AdminComponent implements OnInit {
 
   public teamUnfolded: boolean = false;
   public msgUnfolded: boolean = false;
+  public contactUnfolded: boolean = false;
 
   public msg: string = "";
+
+  public phone: string = "";
+  public mail: string = "";
+  public hours: string = "";
 
   constructor(private contactInfoService: ContactInfoService,
               private teamService: TeamService,
@@ -48,6 +53,9 @@ export class AdminComponent implements OnInit {
     this.workService.services$.subscribe(s => this.services = s)
     this.msgService.msg$.subscribe(m => this.msg = m);
 
+    this.contactInfoService.num$.subscribe(n => this.phone = n);
+    this.contactInfoService.mail$.subscribe(m => this.mail = m);
+    this.contactInfoService.hours$.subscribe(h => this.hours = h);
   }
 
   ngOnInit(): void {
@@ -69,6 +77,14 @@ export class AdminComponent implements OnInit {
 
   saveMsg():void {
     this.msgService.send(this.msg)
+  }
+
+  saveContact(): void {
+    this.contactInfoService.send({
+      phone: this.phone,
+      mail: this.mail,
+      hours: this.hours
+    })
   }
 
 }

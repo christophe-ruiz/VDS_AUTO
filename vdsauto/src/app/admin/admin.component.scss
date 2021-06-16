@@ -24,7 +24,7 @@ input {
   font-size: 1vw;
   border-radius: 5px;
   padding: 0.5vw;
-  border: 1px solid $black;
+  border: 2px solid $cool_grey;
 }
 
 section {
@@ -162,4 +162,35 @@ label {
   font-size: 1vw;
   margin-right: 1.5vw;
   width: 100%;
+}
+
+#contact-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: .75vw;
+  margin-bottom: 2vw;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-container {
+  margin-left: 2vw;
+}
+
+.info-container > input {
+  font-size: 1vw;
+  color: $black;
+}
+
+.contact-info:not(:last-child) {
+  margin-bottom: 1vw;
+}
+
+.contact-info {
+  width: 40%;
 }

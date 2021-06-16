@@ -45,11 +45,40 @@
     <div *ngIf="this.msgUnfolded" [@fold] class="content">
       <p class="desc"> Message à afficher sous les informations de contact. </p>
 
-      <label>Message</label>
+      <label for="msg">Message</label>
       <div id="msg-container">
         <input [(ngModel)]="this.msg" type="text" id="msg">
         <button class="save" (click)="saveMsg()">Sauvegarder</button>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="header-container">
+      <h2>Contact et horaires</h2>
+      <fa-icon (click)="contactUnfolded = !contactUnfolded" *ngIf="this.contactUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="contactUnfolded = !contactUnfolded" *ngIf="!this.contactUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.contactUnfolded" [@fold] class="content">
+      <p class="desc"> Gérer les informations de contact et les horaires présentées dans le bandeau d'en-tête. </p>
+
+      <label for="contact-container">Informations</label>
+      <div id="contact-container">
+        <div class="info-container">
+          <label for="phone">Téléphone</label>
+          <input [(ngModel)]="this.phone" type="text" id="phone" class="contact-info">
+        </div>
+        <div class="info-container">
+          <label for="phone">E-mail</label>
+          <input [(ngModel)]="this.mail" type="text" id="mail" class="contact-info">
+        </div>
+        <div class="info-container">
+          <label for="phone">Horaires</label>
+          <input [(ngModel)]="this.hours" type="text" id="schedule" class="contact-info">
+        </div>
+      </div>
+
+      <button class="save" (click)="saveContact()">Sauvegarder</button>
     </div>
   </section>
 </main>
