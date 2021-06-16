@@ -1,27 +1,55 @@
 <main>
   <h1>Panneau d'administration</h1>
   <section>
-    <h2>Équipe</h2>
-    <button id="add" (click)="newMate()"> Ajouter </button>
-    <div id="team-container">
-      <div *ngFor="let m of team" class="mate">
-        <div class="actions">
-          <p id="cross" (click)="delMate(m)">&#x2716;</p>
-        </div>
-        <div class="field">
-          <label for="prenom">Prénom</label>
-          <input id="prenom" value="{{m.prenom}}" type="text">
-        </div>
-        <div class="field">
-          <label for="nom">Nom</label>
-          <input id="nom" value="{{m.nom}}" type="text">
-        </div>
-        <div class="field">
-          <label for="title">Titre</label>
-          <input id="title" value="{{m.title}}" type="text">
+    <div class="header-container">
+      <h2>Équipe</h2>
+      <fa-icon (click)="teamUnfolded = !teamUnfolded" *ngIf="this.teamUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="teamUnfolded = !teamUnfolded" *ngIf="!this.teamUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.teamUnfolded" [@fold] class="content">
+      <p class="desc">Gestion des profils à afficher dans le page "<a routerLink="/equipe">L'Équipe</a>".</p>
+      <button id="add" (click)="newMate()"> Ajouter </button>
+      <div id="team-container">
+        <div *ngFor="let m of team" class="mate">
+          <div class="actions">
+            <p id="cross" (click)="delMate(m)">&#x2716;</p>
+          </div>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input id="prenom" [(ngModel)]="m.prenom" type="text">
+          </div>
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" [(ngModel)]="m.nom" type="text">
+          </div>
+          <div class="field">
+            <label for="title">Titre</label>
+            <input id="title" [(ngModel)]="m.title" type="text">
+          </div>
+          <div class="field">
+            <label for="avi">Illustration</label>
+            <input id="avi" [(ngModel)]="m.avi" type="text">
+          </div>
         </div>
       </div>
+      <button (click)="saveTeam()" class="save">Sauvegarder</button>
     </div>
-    <button id="save">Sauvegarder</button>
+  </section>
+
+  <section>
+    <div class="header-container">
+      <h2>Bandeau à message</h2>
+      <fa-icon (click)="msgUnfolded = !msgUnfolded" *ngIf="this.msgUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="msgUnfolded = !msgUnfolded" *ngIf="!this.msgUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.msgUnfolded" [@fold] class="content">
+      <p class="desc"> Message à afficher sous les informations de contact. </p>
+
+      <label>Message</label>
+      <div id="msg-container">
+        <input [(ngModel)]="this.msg" type="text" id="msg">
+        <button class="save" (click)="saveMsg()">Sauvegarder</button>
+      </div>
+    </div>
   </section>
 </main>

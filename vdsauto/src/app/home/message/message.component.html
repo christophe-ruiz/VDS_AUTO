@@ -1,0 +1,7 @@
+<div id="msg-container" *ngIf="!this.hide && this.msg !== ''" [@fold]>
+  <p id="msg">{{this.msg}}</p>
+  <div id="close" (click)="hideMsg()">
+    <fa-icon [icon]="faTimes"></fa-icon>
+    <span>Fermer</span>
+  </div>
+</div>

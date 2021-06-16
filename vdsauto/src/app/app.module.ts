@@ -17,9 +17,11 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { RecruitementComponent } from './recruitement/recruitement.component';
 import { ConsentComponent } from './consent/consent.component';
 import { ApplyComponent } from './recruitement/apply/apply.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MessageComponent } from './home/message/message.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +40,17 @@ import { AdminComponent } from './admin/admin.component';
     ConsentComponent,
     ApplyComponent,
     AdminComponent,
+    MessageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        FontAwesomeModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

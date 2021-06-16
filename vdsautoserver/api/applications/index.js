@@ -34,14 +34,15 @@ router.post('/', (req, res) => {
             E-mail: ${req.body.email}\n
             Tél.: ${req.body.phone}\n
             Message ajouté:\n${req.msg}`,
-            html: '<div>' +
-                '<h1>Candidature spontanée</h1>' +
-                `<p>Nom: ${req.body.nom}</p>` +
-                `<p>Prénom: ${req.body.prenom}</p>` +
-                `<p>E-mail: ${req.body.email}</p>` +
-                `<p>Tél.: ${req.body.phone}</p>` +
-                `<p>Message ajouté.: <br> ${req.body.msg}</p>` +
-            '</div>',
+            html:
+                '<div>' +
+                    '<h1>Candidature spontanée</h1>' +
+                    `<p>Nom: ${req.body.nom}</p>` +
+                    `<p>Prénom: ${req.body.prenom}</p>` +
+                    `<p>E-mail: ${req.body.email}</p>` +
+                    `<p>Tél.: ${req.body.phone}</p>` +
+                    `<p>Message ajouté.: <br> ${req.body.msg}</p>` +
+                '</div>',
             attachements: attachementList
         };
 
