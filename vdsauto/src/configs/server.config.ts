@@ -6,4 +6,5 @@ export const httpOptionsBase = {
   })
 };
 
-export const serverUrl = 'http://localhost:9428/api';
+// export const serverUrl = 'http://localhost:9428/api';
+export const serverUrl = 'http://vds.cruiz.fr/api';

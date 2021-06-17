@@ -17,19 +17,20 @@ export class RecruitementComponent implements OnInit {
 
   public requestedFormValidation: boolean = false;
 
-  public spontaneousForm !: FormGroup;
-  public offers: string[] = []
+  public spontaneousForm : FormGroup = this.fb.group({
+    nom:          ['', Validators.pattern(/^[a-z ,.'-]+$/i) ],
+    prenom:       ['', Validators.pattern(/^[a-z ,.'-]+$/i)],
+    email:        ['', Validators.email ],
+    phone:        ['', [Validators.required, Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)] ],
+    msg:          [''],
+    resume:       ['', Validators.required],
+    coverletter:  ['', Validators.required]
+  });
+
+  public offers: string[] = [];
+  private spontaneousFormData = new FormData();
 
   constructor(private fb: FormBuilder, private applicationService: ApplicationService) {
-    this.spontaneousForm = this.fb.group({
-      nom:          ['', Validators.pattern(/^[a-z ,.'-]+$/i) ],
-      prenom:       ['', Validators.pattern(/^[a-z ,.'-]+$/i)],
-      email:        ['', Validators.email ],
-      phone:        ['', [Validators.required, Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)] ],
-      msg:          [''],
-      resume:       ['', Validators.required],
-      coverletter:  ['', Validators.required]
-    });
   }
 
   ngOnInit(): void {
@@ -37,24 +38,41 @@ export class RecruitementComponent implements OnInit {
 
   upload() {
     if (this.spontaneousForm.invalid) return;
-    this.applicationService.uploadApplication(this.spontaneousForm.value);
+    // this.spontaneousFormData.append('nom', this.spontaneousForm.get('nom')!.value)
+    // this.spontaneousFormData.append('prenom', this.spontaneousForm.get('prenom')!.value)
+    // this.spontaneousFormData.append('email', this.spontaneousForm.get('email')!.value)
+    // this.spontaneousFormData.append('msg', this.spontaneousForm.get('msg')!.value)
+    // this.spontaneousFormData.append('phone', this.spontaneousForm.get('phone')!.value)
+    console.log('FORMDATA BEFORE SENDING', this.spontaneousFormData.get('coverletter'))
+    this.applicationService.uploadApplication(this.spontaneousFormData);
   }
 
   handleFile(e: any, f: FileType) {
     if (e.target.files.length > 0) {
       const file: File = e.target.files[0];
-      console.log(file)
-      if (f === FileType.RESUME) {
+      if (f == this.ft.RESUME) {
+        console.log("RESUME")
         this.spontaneousForm.patchValue({
-          resume: file
+          resume: file.name
         });
-      } else if (f === FileType.COVERLETTER) {
+        // this.spontaneousFormData.append('resume', file, file.name);
+        console.log('RESUME ADDED')
+        console.log(this.spontaneousForm)
+      } else if (f == this.ft.COVERLETTER) {
+        console.log("COVERLETTER")
+
         this.spontaneousForm.patchValue({
-          coverletter: file
-        })
+          coverletter: file.name
+        });
+
+        this.spontaneousFormData.append('coverletter', file, file.name);
+        console.log("COVERLETTER ADDED")
+        console.log(this.spontaneousForm)
       }
     }
     else console.log("file is null")
+    console.log("SPON FORM")
+    console.log(this.spontaneousForm)
   }
 
   requestFormValidation () :void {
@@ -63,7 +81,7 @@ export class RecruitementComponent implements OnInit {
 
     if (this.spontaneousForm.valid) {
       this.upload();
-      this.spontaneousForm.reset()
+      // this.spontaneousForm.reset()
       this.requestedFormValidation = false;
     }
   }

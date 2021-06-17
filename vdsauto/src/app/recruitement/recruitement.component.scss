@@ -7,8 +7,7 @@
   margin: 0 5vw;
   background: white;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 2vw;
 
   color: $black;
@@ -40,7 +39,6 @@ h2 {
 #form-content {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 input, textarea {
@@ -65,9 +63,8 @@ textarea {
 }
 
 form {
-  width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 input[type=file] {
