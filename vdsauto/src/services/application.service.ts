@@ -14,7 +14,6 @@ export class ApplicationService {
 
   uploadApplication (formData: FormData) {
     console.log("FORM");
-    // console.log(formData.get('resume'));
     this.http.post(this.applicationUrl, formData).subscribe((res) => {
       console.info("From server: ");
       console.info(res);

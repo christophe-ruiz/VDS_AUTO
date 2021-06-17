@@ -38,12 +38,11 @@ export class RecruitementComponent implements OnInit {
 
   upload() {
     if (this.spontaneousForm.invalid) return;
-    // this.spontaneousFormData.append('nom', this.spontaneousForm.get('nom')!.value)
-    // this.spontaneousFormData.append('prenom', this.spontaneousForm.get('prenom')!.value)
-    // this.spontaneousFormData.append('email', this.spontaneousForm.get('email')!.value)
-    // this.spontaneousFormData.append('msg', this.spontaneousForm.get('msg')!.value)
-    // this.spontaneousFormData.append('phone', this.spontaneousForm.get('phone')!.value)
-    console.log('FORMDATA BEFORE SENDING', this.spontaneousFormData.get('coverletter'))
+    this.spontaneousFormData.set('nom', this.spontaneousForm.get('nom')!.value)
+    this.spontaneousFormData.set('prenom', this.spontaneousForm.get('prenom')!.value)
+    this.spontaneousFormData.set('email', this.spontaneousForm.get('email')!.value)
+    this.spontaneousFormData.set('msg', this.spontaneousForm.get('msg')!.value)
+    this.spontaneousFormData.set('phone', this.spontaneousForm.get('phone')!.value)
     this.applicationService.uploadApplication(this.spontaneousFormData);
   }
 
@@ -55,19 +54,13 @@ export class RecruitementComponent implements OnInit {
         this.spontaneousForm.patchValue({
           resume: file.name
         });
-        // this.spontaneousFormData.append('resume', file, file.name);
-        console.log('RESUME ADDED')
-        console.log(this.spontaneousForm)
+        this.spontaneousFormData.set('resume', file, file.name);
       } else if (f == this.ft.COVERLETTER) {
         console.log("COVERLETTER")
-
         this.spontaneousForm.patchValue({
           coverletter: file.name
         });
-
-        this.spontaneousFormData.append('coverletter', file, file.name);
-        console.log("COVERLETTER ADDED")
-        console.log(this.spontaneousForm)
+        this.spontaneousFormData.set('coverletter', file, file.name);
       }
     }
     else console.log("file is null")
