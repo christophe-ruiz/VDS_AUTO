@@ -22,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MessageComponent } from './home/message/message.component';
 import { OfferComponent } from './recruitement/offer/offer.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { OfferComponent } from './recruitement/offer/offer.component';
     AdminComponent,
     MessageComponent,
     OfferComponent,
+    LoginComponent,
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,13 @@
+<main>
+  <h1>Accès à l'administration</h1>
+  <form [formGroup]="loginForm">
+    <label>Mot de passe administrateur</label>
+    <input formControlName="pwd" type="password" name="pwd">
+    <button (click)="requestFormValidation()">Connexion</button>
+  </form>
+  <div class="errors" *ngIf="loginForm.status === 'INVALID' && requestedFormValidation">
+    <p>Erreurs</p>
+    <p class="error" *ngIf="loginForm.controls['pwd'].pristine">Le mot de passe doit être renseigné</p>
+    <p class="error" *ngIf="loginForm.controls['pwd'].invalid">Le mot de passe n'est pas renseigné</p>
+  </div>
+</main>

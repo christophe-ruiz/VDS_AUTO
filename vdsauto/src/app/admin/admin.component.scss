@@ -20,11 +20,20 @@ h2 {
   font-weight: lighter;
 }
 
-input {
+input, textarea {
   font-size: 1vw;
   border-radius: 5px;
   padding: 0.5vw;
   border: 2px solid $cool_grey;
+}
+
+textarea {
+  max-height: 10vw;
+  min-width: 98.5%;
+  max-width: 98.5%;
+  font-family: Roboto, sans-serif;
+  color: $black;
+  white-space: pre-wrap;
 }
 
 section {

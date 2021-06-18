@@ -1,13 +1,13 @@
 [
   {
-    "nom": "NomUn",
-    "prenom": "PrenomUn",
+    "nom": "Nom1",
+    "prenom": "Prenom1",
     "title": "Mécanicien",
     "avi": "avatar.png"
   },
   {
-    "nom": "NomDeux",
-    "prenom": "PrenomDeux",
+    "nom": "Nom2",
+    "prenom": "Prenom2",
     "title": "Mécanicien",
     "avi": "avatar.png"
   }

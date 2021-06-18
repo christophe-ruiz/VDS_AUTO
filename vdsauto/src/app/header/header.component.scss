@@ -1,9 +1,29 @@
 @charset "UTF-8";
+@import "src/assets/css/colors";
 
 img {
   margin: 2vw 1vw;
   user-select: none;
   height: 6vw;
+}
+
+#admin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  border: none;
+  color: white;
+  font-size: 0.7vw;
+}
+
+#admin:hover {
+  color: $blue;
+  border: 1px $blue solid;
+  border-radius: 5px;
+  padding: 0.5vw;
+  font-family: MarketSans, sans-serif;
+  font-weight: lighter;
 }
 
 header {

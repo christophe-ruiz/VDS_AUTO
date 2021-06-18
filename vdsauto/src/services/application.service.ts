@@ -29,7 +29,7 @@ export class ApplicationService {
         title: "Erreur",
         text: "Impossible d'envoyer la candidature. " +
           "Veuillez réessayer plus tard ou envoyer vos informations par mail. " +
-          "\nMessage d'erreur : " + err.message
+          "Message d'erreur : " + err.message
       });
     });
   }

@@ -79,7 +79,7 @@ export class RecruitementComponent implements OnInit {
 
     if (this.spontaneousForm.valid) {
       this.upload();
-      // this.spontaneousForm.reset()
+      this.spontaneousForm.reset()
       this.requestedFormValidation = false;
     }
   }
