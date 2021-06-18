@@ -61,14 +61,12 @@ router.post('/',
                 Téléphone: ${req.body.phone}\n
                 Message ajouté:\n${req.body.msg}`,
                 html:
-                    '<div>' +
                     '<h1>Candidature spontanée</h1>' +
                     `<p>Nom: ${req.body.nom}</p>` +
                     `<p>Prénom: ${req.body.prenom}</p>` +
                     `<p>E-mail: ${req.body.email}</p>` +
                     `<p>Téléphone: ${req.body.phone}</p>` +
-                    `<p>Message ajouté.: <br> ${req.body.msg}</p>` +
-                    '</div>',
+                    `<p>Message ajouté.: <br> ${req.body.msg}</p>`,
                 attachments: attachmentList
             };
 
@@ -78,7 +76,7 @@ router.post('/',
                 }
                 console.log('Message sent: %s', info.messageId);
             });
-            // fs.unlink(req.file.path, () => {});
+            fs.unlink(req.file.path, () => {});
             res.status(201).json({
                 id: id,
                 msg: "success",
