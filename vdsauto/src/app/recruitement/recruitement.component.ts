@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApplicationService} from "../../services/application.service";
+import {Offer} from "../../models/offer";
+import {OfferService} from "../../services/offer.service";
 
 enum FileType {
   RESUME,
@@ -27,10 +29,13 @@ export class RecruitementComponent implements OnInit {
     coverletter:  ['', Validators.required]
   });
 
-  public offers: string[] = [];
+  public offers: Offer[] = [];
   private spontaneousFormData = new FormData();
 
-  constructor(private fb: FormBuilder, private applicationService: ApplicationService) {
+  constructor(private fb: FormBuilder,
+              private applicationService: ApplicationService,
+              private offerService: OfferService) {
+    this.offerService.offers$.subscribe(o => this.offers = o);
   }
 
   ngOnInit(): void {

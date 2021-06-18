@@ -4,7 +4,6 @@ const { Router } = require('express');
 const router = new Router();
 const fs = require('fs');
 
-
 router.get('/', (req, res) => {
     try {
         const m = Mechanic.get()

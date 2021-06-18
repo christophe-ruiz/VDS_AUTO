@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "src/assets/css/colors";
 
-#spontaneous {
+#spontaneous, #offres {
   border-radius: 25px;
   border: solid 3px $white_grey;
   margin: 0 5vw;
@@ -11,6 +11,10 @@
   padding: 2vw;
 
   color: $black;
+}
+
+#offres {
+  padding: 2vw;
 }
 
 #recruitment-container {
@@ -29,12 +33,17 @@ h1 {
   font-size: 1vw;
 }
 
-h2 {
+h2, h3 {
   margin-left: 5vw;
   font-family: MarketSans, sans-serif;
   font-weight: lighter;
   font-size: 1.5vw;
 }
+
+h3 {
+  font-size: 1.25vw;
+}
+
 
 #form-content {
   display: flex;

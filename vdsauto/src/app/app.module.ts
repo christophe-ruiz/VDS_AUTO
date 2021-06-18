@@ -21,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MessageComponent } from './home/message/message.component';
+import { OfferComponent } from './recruitement/offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MessageComponent } from './home/message/message.component';
     ApplyComponent,
     AdminComponent,
     MessageComponent,
+    OfferComponent,
   ],
     imports: [
         BrowserModule,

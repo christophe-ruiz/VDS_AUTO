@@ -53,9 +53,9 @@
     <button (click)="requestFormValidation()">Candidater</button>
   </div>
 
-  <h3 *ngIf="this.offers.length"></h3>
+  <h3 *ngIf="this.offers.length" id="offer-title">Postes recherchés</h3>
   <div *ngIf="this.offers.length" id="offres">
-
+    <app-offer *ngFor="let o of this.offers" [offer]="o"></app-offer>
   </div>
 
 </main>

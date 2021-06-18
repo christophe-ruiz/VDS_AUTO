@@ -9,6 +9,8 @@ import Swal from 'sweetalert2'
 import {animate, style, transition, trigger} from "@angular/animations";
 import {faChevronDown, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {MessageService} from "../../services/message.service";
+import {Offer} from "../../models/offer";
+import {OfferService} from "../../services/offer.service";
 
 @Component({
   selector: 'app-admin',
@@ -29,6 +31,7 @@ import {MessageService} from "../../services/message.service";
 })
 export class AdminComponent implements OnInit {
   public team: Mechanic[] = [];
+  public offers: Offer[] = [];
   public services: Service[] = []
 
   faChevronDown = faChevronDown;
@@ -37,6 +40,7 @@ export class AdminComponent implements OnInit {
   public teamUnfolded: boolean = false;
   public msgUnfolded: boolean = false;
   public contactUnfolded: boolean = false;
+  public offersUnfolded: boolean = false;
 
   public msg: string = "";
 
@@ -48,6 +52,7 @@ export class AdminComponent implements OnInit {
               private teamService: TeamService,
               private workService: WorkService,
               private titleService: TitleService,
+              private offerService: OfferService,
               private msgService: MessageService) {
     this.teamService.team$.subscribe(m => this.team = m)
     this.workService.services$.subscribe(s => this.services = s)
@@ -56,18 +61,28 @@ export class AdminComponent implements OnInit {
     this.contactInfoService.num$.subscribe(n => this.phone = n);
     this.contactInfoService.mail$.subscribe(m => this.mail = m);
     this.contactInfoService.hours$.subscribe(h => this.hours = h);
+
+    this.offerService.offers$.subscribe(o => this.offers = o);
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Administration')
+    this.titleService.setTitle('Administration');
   }
 
   newMate(): void {
     this.teamService.newMate()
   }
 
+  newOffer(): void {
+    this.offerService.newOffer("Titre de l'offre", "Description du poste recherché.");
+  }
+
   delMate(m: Mechanic):void {
     this.teamService.delMate(m);
+  }
+
+  delOffer(o: Offer):void {
+    this.offerService.delOffer(o);
   }
 
   saveTeam(): void {
@@ -84,6 +99,10 @@ export class AdminComponent implements OnInit {
       mail: this.mail,
       hours: this.hours
     })
+  }
+
+  saveOffers(): void {
+    this.offerService.save()
   }
 
 }
