@@ -30,6 +30,10 @@ div {
 
 }
 
+.selected {
+  border: 2px $blue solid;
+}
+
 #desc {
   font-size: 1vw;
   color: $black;

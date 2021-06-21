@@ -15,7 +15,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { RecruitementComponent } from './recruitement/recruitement.component';
 import { ConsentComponent } from './consent/consent.component';
-import { ApplyComponent } from './recruitement/apply/apply.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './admin/admin.component';
@@ -38,7 +37,6 @@ import { LoginComponent } from './login/login.component';
     MentionsComponent,
     RecruitementComponent,
     ConsentComponent,
-    ApplyComponent,
     AdminComponent,
     MessageComponent,
     OfferComponent,

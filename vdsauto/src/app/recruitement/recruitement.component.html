@@ -46,6 +46,12 @@
 
         <p id="hint-files">La taille totale des fichiers doit être inférieure à 25mo.</p>
         <p id="hint-star"><b>*</b> : champ obligatoire.</p>
+
+        <div id="selectedOffer" *ngIf="this.selectedOffer != 0">
+          <p id="selectedOfferTitle">Offre selectionnée :</p>
+          <p class="offerTitle">#{{this.selectedOffer}}</p>
+          <p class="offerTitle">{{offerTitle}}</p>
+        </div>
       </div>
 
     </form>
@@ -55,7 +61,7 @@
 
   <h3 *ngIf="this.offers.length" id="offer-title">Postes recherchés</h3>
   <div *ngIf="this.offers.length" id="offres">
-    <app-offer *ngFor="let o of this.offers" [offer]="o"></app-offer>
+    <app-offer *ngFor="let o of this.offers" (selected)="selectOffer($event)" [offer]="o" [unselect]="this.unselect"></app-offer>
   </div>
 
 </main>

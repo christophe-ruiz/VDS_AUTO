@@ -28,6 +28,18 @@ h1 {
   font-size: 2vw;
   border-bottom: 1px $mid_red solid;
 }
+#selectedOfferTitle {
+  font-family: MarketSans, sans-serif;
+  font-size: 1.2vw;
+  margin-bottom: 0;
+}
+
+.offerTitle {
+  font-weight: lighter;
+  font-size: 1vw;
+  font-family: MarketSans, sans-serif;
+  margin-top: 1vw;
+}
 
 #hint-files {
   font-size: 1vw;

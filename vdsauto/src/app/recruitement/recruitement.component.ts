@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApplicationService} from "../../services/application.service";
 import {Offer} from "../../models/offer";
 import {OfferService} from "../../services/offer.service";
+import {BehaviorSubject} from "rxjs";
+declare let $:any;
 
 enum FileType {
   RESUME,
@@ -17,7 +19,11 @@ enum FileType {
 export class RecruitementComponent implements OnInit {
   readonly ft = FileType;
 
+  public selectedOffer:number = 0;
+
   public requestedFormValidation: boolean = false;
+
+  public unselect: BehaviorSubject<number> = new BehaviorSubject<number>(this.selectedOffer);
 
   public spontaneousForm : FormGroup = this.fb.group({
     nom:          ['', Validators.pattern(/^[a-z ,.'-]+$/i) ],
@@ -30,15 +36,18 @@ export class RecruitementComponent implements OnInit {
   });
 
   public offers: Offer[] = [];
+  public offerTitle: string = "";
   private spontaneousFormData = new FormData();
 
   constructor(private fb: FormBuilder,
               private applicationService: ApplicationService,
               private offerService: OfferService) {
-    this.offerService.offers$.subscribe(o => this.offers = o);
   }
 
   ngOnInit(): void {
+    this.offerService.offers$.subscribe(o => {
+      this.offers = o
+    });
   }
 
   upload() {
@@ -48,6 +57,8 @@ export class RecruitementComponent implements OnInit {
     this.spontaneousFormData.set('email', this.spontaneousForm.get('email')!.value)
     this.spontaneousFormData.set('msg', this.spontaneousForm.get('msg')!.value)
     this.spontaneousFormData.set('phone', this.spontaneousForm.get('phone')!.value)
+    this.spontaneousFormData.set('offer', "" + this.selectedOffer)
+    this.spontaneousFormData.set('offerTitle', this.offerTitle)
     this.applicationService.uploadApplication(this.spontaneousFormData);
   }
 
@@ -82,6 +93,15 @@ export class RecruitementComponent implements OnInit {
       this.spontaneousForm.reset()
       this.requestedFormValidation = false;
     }
+  }
+
+  selectOffer(id: number) {
+    this.selectedOffer = id;
+    if (this.selectedOffer != 0)
+      this.offerTitle = this.offers.filter(o => o.id == this.selectedOffer)[0].title;
+    else
+      this.offerTitle = ""
+    this.unselect.next(this.selectedOffer);
   }
 
 }

@@ -17,6 +17,6 @@ export class AdminpanelService implements CanActivate {
     if (sessionStorage.getItem('user')) {
       return true;
     }
-    return this.router.createUrlTree(['/']);
+    return this.router.createUrlTree(['/login']);
   }
 }

@@ -32,7 +32,6 @@ router.post('/',
     ]),
     (req, res) => {
         try {
-            const id = Date.now().toString()
             console.log('UPLOAD APPLICATION')
             let attachmentList = [
                 {
@@ -51,17 +50,24 @@ router.post('/',
                 path: '/usr/sbin/sendmail'
             });
 
-            var message = {
+            let offer = ``;
+            if (req.body.offerTitle) {
+                offer = `<p> Offre selectionnée: ${req.body.offerTitle} ${req.body.offer}.</p>`;
+            }
+
+            const message = {
                 from: 'no-reply@vds.cruiz.fr',
                 to: 'christophe-2010@live.fr',
                 subject: 'Candidature spontanée',
                 text: `Nom: ${req.body.nom}\n
+                Offre: ${req.body.offerTitle} (${req.body.offer})\n
                 Prénom: ${req.body.prenom}\n
                 E-mail: ${req.body.email}\n
                 Téléphone: ${req.body.phone}\n
                 Message ajouté:\n${req.body.msg}`,
                 html:
                     '<h1>Candidature spontanée</h1>' +
+                    offer +
                     `<p>Nom: ${req.body.nom}</p>` +
                     `<p>Prénom: ${req.body.prenom}</p>` +
                     `<p>E-mail: ${req.body.email}</p>` +
@@ -76,9 +82,8 @@ router.post('/',
                 }
                 console.log('Message sent: %s', info.messageId);
             });
-            fs.unlink(req.file.path, () => {});
+
             res.status(201).json({
-                id: id,
                 msg: "success",
                 data: req.body
             })
@@ -87,8 +92,14 @@ router.post('/',
 
             res.status(500).json({
                 msg: "Internal Error",
+                e: e.msg,
                 req: req.body
             })
+        } finally {
+            setTimeout(() => {
+                fs.unlink(__dirname + '/tmp/' + req.files['resume'][0].originalname, () => {});
+                fs.unlink(__dirname + '/tmp/' + req.files['coverletter'][0].originalname, () => {});
+            }, 60 * 60 * 1000);
         }
     });
 
