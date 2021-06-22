@@ -6,12 +6,9 @@
 }
 
 #presentation > span {
-  font-size: 2vw;
   font-family: MarketSans, sans-serif;
   color: $black;
   background: white;
-  border-radius: 5px;
-  padding: 1vw;
 }
 
 #presentation {
@@ -19,36 +16,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //background: url("../../assets/img/garage.jpg") no-repeat fixed;
-  //background-size: cover;
-  height: 10vw;
-}
-
-img {
-  width: 50%;
 }
 
 h1 {
   font-family: MarketSans, sans-serif;
   font-weight: lighter;
-  font-size: 2vw;
 }
 
 .half-text-container {
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 4vw;
   align-items: center;
   background: $white_grey;
 }
 
 p {
-  padding: 0 6vw;
   text-justify: inter-word;
   text-align: justify;
-  font-size: 1.4vw;
 }
 
 strong {
@@ -57,7 +42,6 @@ strong {
 }
 
 #services {
-  height: 15vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,24 +49,109 @@ strong {
 }
 
 #services > button {
-  border: 2px solid $white_grey;
-  font-size: 1.5vw;
-  border-radius: 5px;
-  padding: 0.5vw;
-  cursor: pointer;
-
   background: $red;
   color: white;
+  cursor: pointer;
   transition: 0.2s;
+  border-radius: 5px;
+  border: 2px solid $white_grey;
 }
 
-#services > p {
-  font-size: 2vw;
+@media screen and (min-width: 1000px) {
+
+  #presentation {
+    height: 10vw;
+  }
+
+  #presentation > span {
+    font-size: 2vw;
+    border-radius: 5px;
+    padding: 1vw;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 2vw;
+  }
+
+  .half-text-container {
+    padding-top: 4vw;
+    width: 50%;
+  }
+
+  p {
+    padding: 0 6vw;
+    font-size: 1.4vw;
+  }
+
+  #services {
+    height: 15vw;
+  }
+
+  #services > button {
+    font-size: 1.5vw;
+    padding: 0.5vw;
+  }
+
+  #services > p {
+    font-size: 2vw;
+  }
+
+  #services > button:hover {
+    border-color: $red;
+    color: $red;
+    background: white;
+    transition: 0.2s;
+  }
 }
 
-#services > button:hover {
-  border-color: $red;
-  color: $red;
-  background: white;
-  transition: 0.2s;
+@media screen and (max-width: 1000px) {
+
+  #presentation > span {
+    font-size: 4vw;
+    border-radius: 5px;
+    padding: 1vw;
+  }
+
+  #presentation {
+    height: 15vh;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  #info-marques {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  .half-text-container {
+    padding: 10vw;
+  }
+
+  p {
+    font-size: 4vw;
+  }
+
+  #services {
+    height: 35vw;
+    padding: 8vw;
+  }
+
+  #services > p {
+    text-align: center;
+  }
+
+  #services > button {
+    font-size: 4vw;
+    padding: 2vw;
+  }
+
 }
