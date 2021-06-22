@@ -2,7 +2,21 @@ const manageAllErrors = require("../../utils/routes/route-management");
 const {Mechanic} = require("../../models");
 const { Router } = require('express');
 const router = new Router();
+const multer = require('multer');
 const fs = require('fs');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, __dirname + "/avi/");
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    }
+});
+
+const upload = multer({
+    storage: storage
+})
 
 router.get('/', (req, res) => {
     try {
