@@ -1,15 +1,62 @@
 @charset "UTF-8";
 @import "src/assets/css/colors";
 
+@media screen and (min-width: 1001px) {
+
+  footer {
+    font-size: 1vw;
+  }
+
+  .panel {
+    width: 50%;
+  }
+
+  #garage {
+    font-size: 1.3vw;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+  footer {
+    font-size: 4vw;
+    flex-direction: column;
+  }
+
+  #gmap-container {
+    margin-top: 5vw;
+  }
+
+  h2 {
+    font-size: 5.5vw;
+  }
+
+  #garage {
+    font-size: 5vw;
+  }
+
+}
+
+footer {
+  min-height: 20vw;
+  background: $black;
+  color: white;
+  padding: 3vw;
+  display: flex;
+}
+
 h2 {
   text-transform: uppercase;
   font-family: MarketSans, sans-serif;
-  font-size: 1.5vw;
 }
 
 #garage {
   font-family: MarketSans, sans-serif;
-  font-size: 1.3vw;
   margin: 0;
   padding: 0;
 }
@@ -20,7 +67,6 @@ a {
 }
 
 .panel {
-  width: 50%;
   display: flex;
   flex-direction: column;
 }
@@ -32,15 +78,6 @@ h3 {
 p, a{
   padding-top: 0;
   margin-top: 0;
-}
-
-footer {
-  min-height: 20vw;
-  background: $black;
-  color: white;
-  padding: 3vw;
-  font-size: 1vw;
-  display: flex;
 }
 
 .info > h3 {
