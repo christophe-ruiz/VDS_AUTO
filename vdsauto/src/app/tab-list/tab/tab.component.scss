@@ -2,7 +2,6 @@
 
 a {
   color: $black;
-  font-size: 1.4vw;
 
   text-transform: uppercase;
   text-decoration: none;
@@ -14,4 +13,16 @@ a:hover {
   transition: .15s;
   transform: scale(1.1);
   color: $light-blue;
+}
+
+@media screen and (min-width: 1000px) {
+  a {
+    font-size: 1.4vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  a {
+    font-size: 4vw;
+  }
 }

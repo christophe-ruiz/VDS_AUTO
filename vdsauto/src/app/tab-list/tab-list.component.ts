@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Tab} from '../../models/tab';
 
 @Component({
@@ -7,6 +7,8 @@ import {Tab} from '../../models/tab';
   styleUrls: ['./tab-list.component.scss']
 })
 export class TabListComponent implements OnInit {
+  public mobile: boolean = false;
+  public closed: boolean = false;
 
   public tabs = [
     new Tab('home', "Accueil"),
@@ -17,7 +19,25 @@ export class TabListComponent implements OnInit {
 
   constructor() { }
 
+  private checkDevice ():void {
+    if (window.screen.width < 1000) {
+      this.mobile = this.closed = true;
+    } else {
+      this.mobile = this.closed = false;
+    }
+  }
+
   ngOnInit(): void {
+    this.checkDevice();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkDevice();
+  }
+
+  mobileHidePanel(): void {
+    if (this.mobile) this.closed = !this.closed;
   }
 
 }

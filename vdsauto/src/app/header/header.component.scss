@@ -2,9 +2,7 @@
 @import "src/assets/css/colors";
 
 img {
-  margin: 2vw 1vw;
   user-select: none;
-  height: 6vw;
 }
 
 #admin {
@@ -17,18 +15,38 @@ img {
   font-size: 0.7vw;
 }
 
-#admin:hover {
-  color: $blue;
-  border: 1px $blue solid;
-  border-radius: 5px;
-  padding: 0.5vw;
-  font-family: MarketSans, sans-serif;
-  font-weight: lighter;
-}
-
 header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   user-select: none;
+}
+
+@media screen and (min-width: 1000px){
+
+  img {
+    margin: 2vw 1vw;
+    height: 6vw;
+  }
+
+  #admin:hover {
+    color: $blue;
+    border: 1px $blue solid;
+    border-radius: 5px;
+    padding: 0.5vw;
+    font-family: MarketSans, sans-serif;
+    font-weight: lighter;
+  }
+
+}
+
+@media screen and (max-width: 1000px){
+  img {
+    height: 20vw;
+    padding: 4vw 2vw;
+  }
+  header {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
