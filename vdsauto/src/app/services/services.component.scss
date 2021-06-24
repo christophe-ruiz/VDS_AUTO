@@ -15,6 +15,10 @@
     width: 25vw;
   }
 
+  .tile > img {
+    height: 18vw;
+  }
+
   #desc > h2 {
     font-size: 1.75vw;
     padding-bottom: 0.25vw;
@@ -45,6 +49,10 @@
   .tile {
     width: 75vw;
     margin-bottom: 5vw;
+  }
+
+  .tile > img {
+    height: 60vw;
   }
 
   #desc > h2 {
@@ -97,7 +105,6 @@ h1 {
 }
 
 .tile > img {
-  height: 60vw;
   min-width: 100%;
   overflow: hidden;
   object-fit: cover;

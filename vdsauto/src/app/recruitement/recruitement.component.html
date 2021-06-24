@@ -19,7 +19,7 @@
     <p class="error" *ngIf="spontaneousForm.controls['phone'].invalid && !spontaneousForm.controls['phone'].pristine">Le numéro de téléphone est dans un format incorrect</p>
   </div>
 
-  <h2>Candidature spontanée</h2>
+  <h2>Candidature</h2>
   <div id="spontaneous">
     <form [formGroup]="spontaneousForm" enctype="multipart/form-data">
       <div id="form-content">
@@ -50,7 +50,7 @@
         <p id="hint-star"><b>*</b> : champ obligatoire.</p>
 
         <div id="selectedOffer" *ngIf="this.selectedOffer != 0">
-          <p id="selectedOfferTitle">Offre selectionnée :</p>
+          <p id="selectedOfferTitle">Offre sélectionnée :</p>
           <p class="offerTitle">#{{this.selectedOffer}}</p>
           <p class="offerTitle">{{offerTitle}}</p>
         </div>
@@ -62,7 +62,7 @@
   </div>
 
   <h3 *ngIf="this.offers.length" id="offer-title">Postes recherchés</h3>
-  <span *ngIf="this.offers.length" id="offer-hint">Selectionnez une offre pour la lier à votre candidature.</span>
+  <span *ngIf="this.offers.length" id="offer-hint">Sélectionnez une offre pour la lier à votre candidature (optionnel).</span>
   <div *ngIf="this.offers.length" id="offres">
     <app-offer *ngFor="let o of this.offers" (selected)="selectOffer($event)" [offer]="o" [unselect]="this.unselect"></app-offer>
   </div>
