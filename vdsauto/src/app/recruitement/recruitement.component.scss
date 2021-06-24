@@ -1,70 +1,227 @@
 @charset "UTF-8";
 @import "src/assets/css/colors";
 
+@media screen and (min-width: 1001px){
+  #recruitment-container {
+    margin-bottom: 2vw;
+  }
+
+  h1 {
+    font-size: 2vw;
+  }
+
+  #hint-star {
+    font-size: 1vw;
+  }
+
+  label {
+    font-size: 1vw;
+  }
+
+  #spontaneous, #offres {
+    padding: 2vw;
+    margin: 0 5vw;
+  }
+
+  form {
+    justify-content: space-between;
+  }
+
+  #form-content {
+    width: 30%;
+  }
+
+  #offres {
+    padding: 2vw;
+  }
+
+  #files {
+    width: 50%;
+  }
+
+  #selectedOfferTitle {
+    font-size: 1.2vw;
+  }
+
+  .offerTitle {
+    font-size: 1vw;
+    margin-top: 1vw;
+  }
+
+  #hint-files {
+    font-size: 1vw;
+  }
+
+  h2, h3 {
+    margin-left: 5vw;
+  }
+
+  h3 {
+    font-size: 1.25vw;
+  }
+
+  input, textarea {
+    padding: 0.5vw;
+  }
+
+  textarea {
+    min-height: 5vw;
+    height: 10vw;
+    max-height: 15vw;
+  }
+
+  input[type=file] {
+    font-size: 1vw;
+  }
+
+  .error::before {
+    font-size: 1.1vw;
+    top: -0.1vw;
+  }
+
+  .error {
+    padding: 0.5vw;
+    font-size: 1.1vw;
+    margin-bottom: 1vw;
+  }
+
+  button {
+    font-size: 1.5vw;
+    padding: .75vw;
+    margin-top: 2vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #recruitment-container {
+    margin-bottom: 6vw;
+  }
+
+  h1 {
+    font-size: 6vw;
+  }
+
+  #hint-star {
+    font-size: 3vw;
+  }
+
+  label {
+    font-size: 4vw;
+  }
+
+  #spontaneous, #offres {
+    padding: 6vw;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  #offres {
+    padding: 6vw;
+  }
+
+  #selectedOfferTitle {
+    font-size: 4.5vw;
+  }
+
+  .offerTitle {
+    font-size: 4vw;
+    margin-top: 4vw;
+  }
+
+  #hint-files {
+    font-size: 3vw;
+  }
+
+  h2, h3 {
+    margin-left: 10vw;
+    font-size: 5vw;
+  }
+
+  h3 {
+    font-size: 4.75vw;
+  }
+
+  input, textarea {
+    padding: 2vw;
+  }
+
+  textarea {
+    min-height: 10vw;
+    height: 20vw;
+    max-height: 30vw;
+  }
+
+  #files {
+    margin-top: 4vw;
+  }
+
+  input[type=file] {
+    font-size: 4vw;
+  }
+
+  .error::before {
+    font-size: 4.2vw;
+    top: -0.2vw;
+  }
+
+  .error {
+    padding: 2vw;
+    font-size: 4.2vw;
+    margin-bottom: 4vw;
+  }
+
+  button {
+    font-size: 5vw;
+    padding: 3vw;
+    margin-top: 6vw;
+  }
+
+}
+
 #spontaneous, #offres {
   border-radius: 25px;
   border: solid 3px $white_grey;
-  margin: 0 5vw;
   background: white;
+
   display: flex;
   flex-direction: column;
-  padding: 2vw;
 
   color: $black;
 }
 
-#offres {
-  padding: 2vw;
-}
-
 #recruitment-container {
-  margin-bottom: 2vw;
   display: flex;
   flex-direction: column;
 }
 
 h1 {
   align-self: center;
-  font-size: 2vw;
   border-bottom: 1px $mid_red solid;
 }
+
 #selectedOfferTitle {
   font-family: MarketSans, sans-serif;
-  font-size: 1.2vw;
   margin-bottom: 0;
 }
 
 .offerTitle {
   font-weight: lighter;
-  font-size: 1vw;
   font-family: MarketSans, sans-serif;
-  margin-top: 1vw;
-}
-
-#hint-files {
-  font-size: 1vw;
 }
 
 h2, h3 {
-  margin-left: 5vw;
   font-family: MarketSans, sans-serif;
   font-weight: lighter;
-  font-size: 1.5vw;
 }
-
-h3 {
-  font-size: 1.25vw;
-}
-
 
 #form-content {
   display: flex;
   flex-direction: column;
-  width: 30%;
 }
 
 input, textarea {
-  padding: 0.5vw;
   border-radius: 5px;
   border: 1px solid $cool_grey;
   font-family: Arial, sans-serif;
@@ -73,9 +230,6 @@ input, textarea {
 textarea {
   min-width: 100%;
   max-width: 100%;
-  min-height: 5vw;
-  height: 10vw;
-  max-height: 15vw;
   text-align: justify;
   box-sizing: border-box;
 }
@@ -86,11 +240,9 @@ textarea {
 
 form {
   display: flex;
-  justify-content: space-between;
 }
 
 input[type=file] {
-  font-size: 1vw;
   color: $black;
 }
 
@@ -102,10 +254,8 @@ input[type=file] {
 }
 
 .error::before {
-  content: "⚠️";
   position: relative;
-  top: -0.1vw;
-  font-size: 1.1vw;
+  content: "⚠️";
 }
 
 .error {
@@ -115,14 +265,9 @@ input[type=file] {
   color: white;
   font-weight: bold;
   background: $red;
-  border: 2px solid $black;
+  border: 2px solid $white_grey;
   border-radius: 5px;
-  padding: 0.5vw;
-
-  font-size: 1.1vw;
-
   margin: 0;
-  margin-bottom: 1vw;
 }
 
 b {
@@ -133,14 +278,11 @@ b {
 #files {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 button {
   justify-self: center;
   font-family: MarketSans, sans-serif;
-  font-size: 1.5vw;
-  padding: .75vw;
 
   color: $blue;
   background: white;
@@ -151,7 +293,6 @@ button {
   cursor: pointer;
   user-select: none;
 
-  margin-top: 2vw;
 
   transition: .2s;
 
@@ -167,9 +308,5 @@ button:hover {
 }
 
 label {
-  font-size: 1vw;
   font-weight: lighter;
-}
-#hint-star {
-  font-size: 1vw;
 }

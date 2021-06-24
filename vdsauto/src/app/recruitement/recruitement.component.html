@@ -11,12 +11,14 @@
     <p class="error" *ngIf="spontaneousForm.controls['resume'].invalid">Le CV doit être renseigné</p>
     <p class="error" *ngIf="spontaneousForm.controls['coverletter'].invalid">La lettre de motivation doit être renseignée</p>
   </div>
+
   <div class="errors" *ngIf="spontaneousForm.status === 'INVALID' && requestedFormValidation">
     <p class="error" *ngIf="spontaneousForm.controls['nom'].invalid && !spontaneousForm.controls['nom'].pristine">Le nom est dans un format incorrect</p>
     <p class="error" *ngIf="spontaneousForm.controls['prenom'].invalid && !spontaneousForm.controls['prenom'].pristine">Le prénom est dans un format incorrect</p>
     <p class="error" *ngIf="spontaneousForm.controls['email'].invalid && !spontaneousForm.controls['email'].pristine">L'adresse e-mail est dans un format incorrect</p>
     <p class="error" *ngIf="spontaneousForm.controls['phone'].invalid && !spontaneousForm.controls['phone'].pristine">Le numéro de téléphone est dans un format incorrect</p>
   </div>
+
   <h2>Candidature spontanée</h2>
   <div id="spontaneous">
     <form [formGroup]="spontaneousForm" enctype="multipart/form-data">
