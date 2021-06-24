@@ -35,6 +35,28 @@ $vdsauto-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+  font-family:
+    "MarketSans";
+  src:
+    url('assets/fonts/Market Sans/regular.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/light.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/medium.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/semibold.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family:
+    "Overpass";
+  src:
+    url('assets/fonts/overpass/regular.otf') format('opentype'),
+    url('assets/fonts/overpass/light.otf') format('opentype'),
+    url('assets/fonts/overpass/semibold.otf') format('opentype'),
+    url('assets/fonts/overpass/thin.otf') format('opentype');
+}
+
+
 html, body {
   height: 100%;
 }
