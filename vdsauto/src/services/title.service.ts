@@ -5,7 +5,7 @@ import {Title} from "@angular/platform-browser";
   providedIn: 'root'
 })
 export class TitleService {
-  readonly website: string = "V.D.S. Auto"
+  readonly website: string = "VDS Auto"
 
   constructor(private titleService: Title) {
 
