@@ -62,6 +62,7 @@
   </div>
 
   <h3 *ngIf="this.offers.length" id="offer-title">Postes recherchés</h3>
+  <span *ngIf="this.offers.length" id="offer-hint">Selectionnez une offre pour la lier à votre candidature.</span>
   <div *ngIf="this.offers.length" id="offres">
     <app-offer *ngFor="let o of this.offers" (selected)="selectOffer($event)" [offer]="o" [unselect]="this.unselect"></app-offer>
   </div>

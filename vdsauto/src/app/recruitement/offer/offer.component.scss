@@ -1,33 +1,70 @@
 @charset "UTF-8";
 @import "../../../assets/css/colors";
 
+@media screen and (min-width: 1001px) {
+  div {
+    padding: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  #id {
+    font-size: 0.8vw;
+  }
+
+  #title {
+    font-size: 1.2vw;
+  }
+
+  #desc {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  div {
+    padding: 4vw;
+    margin-bottom: 6vw;
+  }
+
+  #id {
+    font-size: 3.5vw;
+  }
+
+  #title {
+    font-size: 4.4vw;
+  }
+
+  #desc {
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+
+}
+
 div {
-  padding: 1vw;
   display: flex;
   flex-direction: column;
   border: 2px solid $white_grey;
   border-radius: 5px;
-  margin-bottom: 2vw;
   position: relative;
   cursor: pointer;
 }
 
 #id {
   color: $blue_grey;
-  font-size: 0.8vw;
   font-family: MarketSans, sans-serif;
   font-weight: lighter;
   padding: 0;
-  margin-bottom: 0vw;
+  margin-bottom: 0;
 }
 
 #title {
   font-family: MarketSans, sans-serif;
-  font-size: 1.2vw;
   color: $black;
   padding: 0;
   margin-bottom: 0;
-
 }
 
 .selected {
@@ -35,10 +72,8 @@ div {
 }
 
 #desc {
-  font-size: 1vw;
   color: $black;
   padding: 0;
-  margin-bottom: 1vw;
   text-align: justify;
   white-space: pre-wrap;
 }
