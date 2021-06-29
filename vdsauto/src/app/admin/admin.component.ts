@@ -11,6 +11,8 @@ import {faChevronDown, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {MessageService} from "../../services/message.service";
 import {Offer} from "../../models/offer";
 import {OfferService} from "../../services/offer.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {AviService} from "../../services/avi.service";
 
 @Component({
   selector: 'app-admin',
@@ -33,6 +35,12 @@ export class AdminComponent implements OnInit {
   public team: Mechanic[] = [];
   public offers: Offer[] = [];
   public services: Service[] = []
+  public avis: string[] = [];
+
+  public aviData: FormData = new FormData();
+  public aviForm: FormGroup = this.fb.group({
+    avis: this.fb.array([])
+  });
 
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
@@ -53,9 +61,11 @@ export class AdminComponent implements OnInit {
               private workService: WorkService,
               private titleService: TitleService,
               private offerService: OfferService,
-              private msgService: MessageService) {
-    this.teamService.team$.subscribe(m => this.team = m)
-    this.workService.services$.subscribe(s => this.services = s)
+              private msgService: MessageService,
+              private fb: FormBuilder,
+              private aviService: AviService) {
+    this.teamService.team$.subscribe(m => this.team = m);
+    this.workService.services$.subscribe(s => this.services = s);
     this.msgService.msg$.subscribe(m => this.msg = m);
 
     this.contactInfoService.num$.subscribe(n => this.phone = n);
@@ -63,6 +73,7 @@ export class AdminComponent implements OnInit {
     this.contactInfoService.hours$.subscribe(h => this.hours = h);
 
     this.offerService.offers$.subscribe(o => this.offers = o);
+    this.aviService.avis$.subscribe(a => this.avis = a);
   }
 
   ngOnInit(): void {
@@ -103,6 +114,34 @@ export class AdminComponent implements OnInit {
 
   saveOffers(): void {
     this.offerService.save()
+  }
+
+  delAvi(a: string): void {
+    this.aviService.delete(a);
+  }
+
+  handleFiles(e: any) {
+    let files: File[] = [];
+    console.log('AVI FILES', e.target.files);
+    if (e.target.files.length > 0) {
+      files = Array.from(e.target.files);
+
+      files.forEach( f => {
+        this.aviData.append('avis', f as Blob);
+      })
+
+      this.aviForm.patchValue({
+        files: files
+      });
+    } else {
+      this.aviForm.patchValue({
+        files: []
+      });
+    }
+  }
+
+  uploadAvi(): void {
+    this.aviService.post(this.aviData);
   }
 
 }

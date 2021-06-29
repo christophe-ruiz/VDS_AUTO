@@ -2,9 +2,11 @@ const { Router } = require('express');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const multer = require('multer');
+const path = require("path");
+
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, __dirname + "/tmp/");
+        callback(null, path.join( __dirname + "/tmp/"));
     },
     filename: function (req, file, callback) {
         callback(null, file.originalname);
@@ -13,6 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 })
+
 const router = new Router();
 
 

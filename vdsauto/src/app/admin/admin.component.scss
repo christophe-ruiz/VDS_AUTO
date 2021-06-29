@@ -9,14 +9,14 @@ main {
 h1 {
   align-self: center;
   font-size: 2.5vw;
-  font-family: "MarketSans", sans-serif;
+  font-family: "Market Sans", sans-serif;
   font-weight: lighter;
   border-bottom: 1px solid $mid_red;
 }
 
 h2 {
   font-size: 1.5vw;
-  font-family: "MarketSans", sans-serif;
+  font-family: "Market Sans", sans-serif;
   font-weight: lighter;
 }
 
@@ -112,7 +112,7 @@ button {
 }
 
 #id-container > label {
-  font-family: MarketSans, sans-serif;
+  font-family: "Market Sans", sans-serif;
   font-weight: lighter;
   font-size: 1vw;
 }
@@ -131,7 +131,7 @@ button {
   font-size: 1vw;
   font-weight: lighter;
   color: $blue_grey;
-  font-family: MarketSans, sans-serif;
+  font-family: "Market Sans", sans-serif;
 
 }
 
@@ -153,7 +153,7 @@ section {
 
 .desc {
   font-size: 1vw;
-  font-family: MarketSans, sans-serif;
+  font-family: "Market Sans", sans-serif;
   font-weight: lighter;
 }
 
@@ -247,4 +247,57 @@ label {
 
 .contact-info {
   width: 40%;
+}
+
+#team-avi-container {
+  border-radius: 5px;
+  border: 2px $white_grey solid;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vw;
+}
+
+#avi-title, #existing-avi-title {
+  font-size: 1.75vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+}
+
+#avi-desc {
+  font-size: 1vw;
+  font-family: "Market Sans", sans-serif;
+  text-align: justify;
+  margin-bottom: 2vw;
+}
+
+#avi-files {
+  border: none;
+}
+
+#send-avi {
+  display: flex;
+  margin-bottom: 2vw;
+}
+
+#existing-avi {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1vw;
+}
+
+#avi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  margin-top: 2vw;
+
+  border: 1px $cool_grey solid;
+  border-radius: 5px;
+}
+
+#avi-card:not(:last-child) {
+  margin-right: 3vw;
 }

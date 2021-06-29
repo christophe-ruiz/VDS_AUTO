@@ -2,7 +2,7 @@
   <h1> L'Équipe </h1>
   <div id="team-container">
     <div class="mechanic" *ngFor="let m of team">
-      <img alt="Illustration mécanicien" src="assets/img/{{m.avi}}">
+      <img alt="Illustration mécanicien" src="{{this.serverUrl + '/mechanics/avi/' + m.avi}}">
       <div id="name">
         <span> {{m.prenom}} </span>
         <span> {{m.nom}} </span>

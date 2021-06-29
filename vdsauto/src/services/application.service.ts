@@ -28,8 +28,7 @@ export class ApplicationService {
         icon: "error",
         title: "Erreur",
         text: "Impossible d'envoyer la candidature. " +
-          "Veuillez réessayer plus tard ou envoyer vos informations par mail. " +
-          "Message d'erreur : " + err.message
+          "Veuillez réessayer plus tard ou envoyer vos informations par mail. "
       });
     });
   }

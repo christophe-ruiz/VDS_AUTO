@@ -33,6 +33,22 @@
         </div>
       </div>
       <button (click)="saveTeam()" class="save">Sauvegarder</button>
+      <div id="team-avi-container">
+        <span id="avi-title">Ajouter des illustrations</span>
+        <p id="avi-desc">Sélectionner des images pour les rendre disponibles sur les profils de l'équipe. Après avoir sélectionner
+        les images il suffit d'appuyer sur le bouton "Envoyer" pour les enregistrer.</p>
+        <form enctype="multipart/form-data" id="send-avi" [formGroup]="aviForm">
+          <input (change)="handleFiles($event)" formControlName="avis" type="file" id="avi-files" name="avis" accept="image/*, image/jpeg" multiple>
+          <button id="avi-send" type="submit" (click)="uploadAvi()">Envoyer</button>
+        </form>
+        <span id="existing-avi-title">Illustrations existantes</span>
+        <div id="existing-avi">
+          <div id="avi-card" *ngFor="let a of this.avis">
+            <p class="cross" (click)="delAvi(a)">&#x2716;</p>
+            <p id="avi-path">{{a}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
