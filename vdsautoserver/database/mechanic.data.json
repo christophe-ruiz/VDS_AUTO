@@ -10,5 +10,11 @@
     "prenom": "Prenom2",
     "title": "Mécanicien",
     "avi": "mecanicien.png"
+  },
+  {
+    "nom": "Nom3",
+    "prenom": "Prenom3",
+    "title": "Mécanicien",
+    "avi": "mecanicien.png"
   }
 ]

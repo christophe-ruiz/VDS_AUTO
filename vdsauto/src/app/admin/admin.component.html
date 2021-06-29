@@ -37,8 +37,8 @@
         <span id="avi-title">Ajouter des illustrations</span>
         <p id="avi-desc">Sélectionner des images pour les rendre disponibles sur les profils de l'équipe. Après avoir sélectionner
         les images il suffit d'appuyer sur le bouton "Envoyer" pour les enregistrer.</p>
-        <form enctype="multipart/form-data" id="send-avi" [formGroup]="aviForm">
-          <input (change)="handleFiles($event)" formControlName="avis" type="file" id="avi-files" name="avis" accept="image/*, image/jpeg" multiple>
+        <form enctype="multipart/form-data" id="send-avi">
+          <input (change)="handleFiles($event)" type="file" id="avi-files" name="avis" accept="image/*, image/jpeg" multiple>
           <button id="avi-send" type="submit" (click)="uploadAvi()">Envoyer</button>
         </form>
         <span id="existing-avi-title">Illustrations existantes</span>

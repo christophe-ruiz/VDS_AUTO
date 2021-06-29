@@ -38,9 +38,6 @@ export class AdminComponent implements OnInit {
   public avis: string[] = [];
 
   public aviData: FormData = new FormData();
-  public aviForm: FormGroup = this.fb.group({
-    avis: this.fb.array([])
-  });
 
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
@@ -123,20 +120,13 @@ export class AdminComponent implements OnInit {
   handleFiles(e: any) {
     let files: File[] = [];
     console.log('AVI FILES', e.target.files);
+    this.aviData.set('avis', '');
     if (e.target.files.length > 0) {
       files = Array.from(e.target.files);
 
       files.forEach( f => {
         this.aviData.append('avis', f as Blob);
       })
-
-      this.aviForm.patchValue({
-        files: files
-      });
-    } else {
-      this.aviForm.patchValue({
-        files: []
-      });
     }
   }
 
