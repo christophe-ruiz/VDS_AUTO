@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {serverUrl} from "../configs/server.config";
+import {httpOptionsBase, serverUrl} from "../configs/server.config";
 import {BehaviorSubject} from "rxjs";
 import Swal from "sweetalert2";
+import {SessionService} from "./session.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AviService {
 
   public avis$ : BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private sessionService: SessionService) {
     this.fetch();
   }
 
@@ -24,7 +25,13 @@ export class AviService {
   }
 
   delete(name: string): void {
-    this.http.delete(this.aviUrl+'/'+name).subscribe(res => {
+    const options = {
+      ...httpOptionsBase,
+      body: {
+        token: this.sessionService.get('user'),
+      }
+    }
+    this.http.delete(this.aviUrl+'/'+name, options).subscribe(res => {
       Swal.fire({
         icon: "success",
         title: "Succès",
@@ -43,6 +50,7 @@ export class AviService {
   }
 
   post(data: FormData): void {
+    data.append('token', this.sessionService.get('user'));
     this.http.post(this.aviUrl, data).subscribe(res => {
       Swal.fire({
         icon: "success",

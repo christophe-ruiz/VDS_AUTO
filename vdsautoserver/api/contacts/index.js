@@ -1,6 +1,7 @@
 const manageAllErrors = require("../../utils/routes/route-management");
 const {Contacts} = require("../../models");
 const { Router } = require('express');
+const checkAdmin = require('../../utils/check-admin');
 const router = new Router();
 
 router.get('/', (req, res) => {
@@ -14,10 +15,10 @@ router.get('/', (req, res) => {
     }
 })
 
-router.put('/', (req, res) => {
+router.put('/', checkAdmin, (req, res) => {
     try {
-        Contacts.update(req.body)
-        res.status(200).json(req.body)
+        Contacts.update(req.body.contact)
+        res.status(200).json(req.body.contact)
     } catch (err) {
         manageAllErrors(res, err)
     }

@@ -1,6 +1,8 @@
 const manageAllErrors = require("../../utils/routes/route-management");
 const { Router } = require('express');
 const {Message} = require("../../models");
+const checkAdmin = require("../../utils/check-admin");
+
 const router = new Router();
 
 router.get('/', (req, res) => {
@@ -14,7 +16,7 @@ router.get('/', (req, res) => {
     }
 })
 
-router.put('/', (req, res) => {
+router.put('/', checkAdmin, (req, res) => {
     try {
         console.log("PUT MESSAGE")
         console.log(req.body.msg)

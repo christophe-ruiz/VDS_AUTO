@@ -5,6 +5,12 @@ const router = new Router();
 const multer = require('multer');
 const fs = require('fs');
 const path = require("path");
+const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
+const dotenv = require('dotenv');
+const checkAdmin = require('../../utils/check-admin')
+
+dotenv.config();
 
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -46,7 +52,7 @@ router.get('/avi/', (req, res) => {
     }
 });
 
-router.post('/avi', upload, (req, res) => {
+router.post('/avi', upload, checkAdmin, (req, res) => {
     try {
         if (req.files.length <= 0) {
             return res.status(400).send(`You must select at least 1 file.`);
@@ -58,7 +64,7 @@ router.post('/avi', upload, (req, res) => {
     }
 });
 
-router.delete('/avi/:name', (req, res) => {
+router.delete('/avi/:name', checkAdmin, (req, res) => {
     try {
         if (!req.params.name in fs.readdirSync(path.join(__dirname + '/avi/')))
             res.status(404).json("File not found.").end();
@@ -71,7 +77,7 @@ router.delete('/avi/:name', (req, res) => {
     }
 })
 
-router.put('/', (req, res) => {
+router.put('/', checkAdmin, (req, res) => {
     try {
         console.log("TEAM")
         console.log(req.body.team)
@@ -82,9 +88,9 @@ router.put('/', (req, res) => {
     }
 });
 
-router.delete('/', (req, res) => {
+router.delete('/', checkAdmin, (req, res) => {
     try {
-        Mechanic.suppr(req.body);
+        Mechanic.suppr(req.body.who);
         res.status(200).json(req.body);
     } catch (e) {
         manageAllErrors(res, e);

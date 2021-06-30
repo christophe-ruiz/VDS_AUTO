@@ -13,6 +13,8 @@ import {Offer} from "../../models/offer";
 import {OfferService} from "../../services/offer.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AviService} from "../../services/avi.service";
+import {SessionService} from "../../services/session.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -60,7 +62,9 @@ export class AdminComponent implements OnInit {
               private offerService: OfferService,
               private msgService: MessageService,
               private fb: FormBuilder,
-              private aviService: AviService) {
+              private aviService: AviService,
+              private router: Router,
+              public sessionService: SessionService) {
     this.teamService.team$.subscribe(m => this.team = m);
     this.workService.services$.subscribe(s => this.services = s);
     this.msgService.msg$.subscribe(m => this.msg = m);
@@ -86,11 +90,35 @@ export class AdminComponent implements OnInit {
   }
 
   delMate(m: Mechanic):void {
-    this.teamService.delMate(m);
+    Swal.fire({
+      title: 'Êtes vous sûr de vouloir supprimer cette personne ?',
+      text: 'Personne sélectionnée: ' + m.prenom + ' ' + m.nom,
+      showCancelButton: true,
+      confirmButtonText: `Oui`,
+      cancelButtonText: 'Non',
+      confirmButtonColor: "#00B74F",
+      denyButtonText: `Non`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.teamService.delMate(m);
+      }
+    })
   }
 
   delOffer(o: Offer):void {
-    this.offerService.delOffer(o);
+    Swal.fire({
+      title: 'Êtes vous sûr de vouloir supprimer cette offre ?',
+      text: 'Offre sélectionnée: ' + o.title + '(#'+ o.id + ')',
+      showCancelButton: true,
+      confirmButtonText: `Oui`,
+      cancelButtonText: 'Non',
+      confirmButtonColor: "#00B74F",
+      denyButtonText: `Non`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.offerService.delOffer(o);
+      }
+    })
   }
 
   saveTeam(): void {
@@ -114,7 +142,19 @@ export class AdminComponent implements OnInit {
   }
 
   delAvi(a: string): void {
-    this.aviService.delete(a);
+    Swal.fire({
+      title: 'Êtes vous sûr de vouloir supprimer cette image ?',
+      text: 'Image sélectionnée: ' + a,
+      showCancelButton: true,
+      confirmButtonText: `Oui`,
+      cancelButtonText: 'Non',
+      confirmButtonColor: "#00B74F",
+      denyButtonText: `Non`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.aviService.delete(a);
+      }
+    })
   }
 
   handleFiles(e: any) {
@@ -128,6 +168,22 @@ export class AdminComponent implements OnInit {
         this.aviData.append('avis', f as Blob);
       })
     }
+  }
+
+  disconnect() {
+    Swal.fire({
+      title: 'Êtes vous sûr de vouloir vous déconnecter ?',
+      showCancelButton: true,
+      confirmButtonText: `Oui`,
+      cancelButtonText: 'Non',
+      confirmButtonColor: "#00B74F",
+      denyButtonText: `Non`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.sessionService.flush();
+        this.router.navigate(['/home']);
+      }
+    })
   }
 
   uploadAvi(): void {

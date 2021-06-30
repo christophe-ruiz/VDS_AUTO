@@ -60,7 +60,28 @@ router.post('/',
 
             const message = {
                 from: 'no-reply@vds.cruiz.fr',
-                to: 'christophe-2010@live.fr',
+                to: 'bobby@cruiz.fr',
+                subject: 'Candidature spontanée',
+                text: `Nom: ${req.body.nom}\n
+                Offre: ${req.body.offerTitle} (${req.body.offer})\n
+                Prénom: ${req.body.prenom}\n
+                E-mail: ${req.body.email}\n
+                Téléphone: ${req.body.phone}\n
+                Message ajouté:\n${req.body.msg}`,
+                html:
+                    '<h1>Candidature spontanée</h1>' +
+                    offer +
+                    `<p>Nom: ${req.body.nom}</p>` +
+                    `<p>Prénom: ${req.body.prenom}</p>` +
+                    `<p>E-mail: ${req.body.email}</p>` +
+                    `<p>Téléphone: ${req.body.phone}</p>` +
+                    `<p>Message ajouté.: <br> ${req.body.msg}</p>`,
+                attachments: attachmentList
+            };
+
+            const confirm = {
+                from: 'no-reply@vds.cruiz.fr',
+                to: `${req.body.email}`,
                 subject: 'Candidature spontanée',
                 text: `Nom: ${req.body.nom}\n
                 Offre: ${req.body.offerTitle} (${req.body.offer})\n
@@ -84,6 +105,13 @@ router.post('/',
                     return console.log(error);
                 }
                 console.log('Message sent: %s', info.messageId);
+
+                transporter.sendMail(confirm, (error, info) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message sent: %s', info.messageId);
+                });
             });
 
             res.status(201).json({

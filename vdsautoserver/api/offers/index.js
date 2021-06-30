@@ -1,7 +1,8 @@
 const {Offer} = require('../../models')
 const manageAllErrors = require("../../utils/routes/route-management");
-
 const { Router } = require('express');
+const checkAdmin = require('../../utils/check-admin');
+
 const router = new Router();
 
 router.get('/', (req, res) => {
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 
-router.put('/', (req, res) => {
+router.put('/', checkAdmin, (req, res) => {
     try {
         console.log("TEAM")
         console.log(req.body.offers)

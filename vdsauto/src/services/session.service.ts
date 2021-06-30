@@ -24,4 +24,8 @@ export class SessionService {
   remove(key:string){
     sessionStorage.removeItem(key);
   }
+
+  flush() {
+    this.remove('user');
+  }
 }

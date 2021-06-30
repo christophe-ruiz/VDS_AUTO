@@ -4,6 +4,7 @@ import {Mechanic} from "../models/mechanic";
 import {HttpClient} from "@angular/common/http";
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import Swal from "sweetalert2";
+import {SessionService} from "./session.service";
 
 
 @Injectable({
@@ -11,12 +12,12 @@ import Swal from "sweetalert2";
 })
 export class TeamService {
   readonly defaultTeam: Mechanic[] = [
-    new Mechanic("", "", "", "avatar.png"),
+    new Mechanic("", "", "", "mecanicien.png"),
   ]
   public team$ :BehaviorSubject<Mechanic[]> = new BehaviorSubject<Mechanic[]>(this.defaultTeam)
   readonly teamUrl = serverUrl + '/mechanics'
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private sessionService: SessionService) {
     this.http.get<Mechanic[]>(this.teamUrl, httpOptionsBase).subscribe(t => this.team$.next(t))
   }
 
@@ -36,7 +37,7 @@ export class TeamService {
   }
 
   save() {
-    this.http.put(this.teamUrl, {team: this.team$.value}, httpOptionsBase).subscribe((res) => {
+    this.http.put(this.teamUrl, {team: this.team$.value, token: this.sessionService.get('user')}, httpOptionsBase).subscribe((res) => {
       console.log({team: this.team$.value})
       console.log("FROM SERVER: ")
       console.log(res)

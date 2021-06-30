@@ -17,7 +17,7 @@ export class LoginService {
 
   connect(pwd: string) {
     this.http.post(this.loginUrl, {pwd: pwd}, httpOptionsBase).subscribe((res) => {
-      this.sessionService.set('user', true);
+      this.sessionService.set('user', (res as any).token);
       this.router.navigate(['/admin'])
     }, (err) => {
       Swal.fire({

@@ -80,6 +80,19 @@ button {
   margin-top: 2vw;
 }
 
+#disconnect {
+  background: $red;
+  color: white;
+  border: 2px $white_grey solid;
+  align-self: center;
+  transition: .2s;
+}
+
+#disconnect:hover {
+  transform: scale(1.1);
+  transition: .2s;
+}
+
 .save:hover {
   transition: 0.2s;
   background-color: $white_grey;
