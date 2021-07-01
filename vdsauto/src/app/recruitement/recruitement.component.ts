@@ -92,6 +92,9 @@ export class RecruitementComponent implements OnInit {
       this.upload();
       this.spontaneousForm.reset()
       this.requestedFormValidation = false;
+      this.selectOffer(0);
+      (document.getElementById("resume") as HTMLInputElement).value = "";
+      (document.getElementById("cover-letter") as HTMLInputElement).value = "";
     }
   }
 

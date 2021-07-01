@@ -4,6 +4,9 @@ const fs = require('fs');
 const multer = require('multer');
 const path = require("path");
 
+const dotenv = require("dotenv")
+dotenv.config()
+
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, path.join( __dirname + "/tmp/"));
@@ -47,11 +50,21 @@ router.post('/',
                 },
             ];
 
-            let transporter = nodemailer.createTransport({
-                sendmail: true,
-                newline: 'unix',
-                path: '/usr/sbin/sendmail'
-            });
+            // let transporter = nodemailer.createTransport({
+            //     sendmail: true,
+            //     newline: 'unix',
+            //     path: '/usr/sbin/sendmail'
+            // });
+
+            const transporter = nodemailer.createTransport({
+                host: process.env.MAIL_SERVER,
+                port: process.env.MAIL_OUT_PORT,
+                secure: true,
+                auth: {
+                    user: process.env.MAIL_USER,
+                    pass: process.env.MAIL_PWD
+                }
+            })
 
             let offer = ``;
             if (req.body.offerTitle) {
@@ -59,9 +72,9 @@ router.post('/',
             }
 
             const message = {
-                from: 'no-reply@vds.cruiz.fr',
-                to: 'bobby@cruiz.fr',
-                subject: 'Candidature spontanée',
+                from: `"Recrutement VDS Auto" <${process.env.MAIL_USER}>`,
+                to: 'vds-auto13@orange.fr',
+                subject: 'Candidature',
                 text: `Nom: ${req.body.nom}\n
                 Offre: ${req.body.offerTitle} (${req.body.offer})\n
                 Prénom: ${req.body.prenom}\n
@@ -69,20 +82,20 @@ router.post('/',
                 Téléphone: ${req.body.phone}\n
                 Message ajouté:\n${req.body.msg}`,
                 html:
-                    '<h1>Candidature spontanée</h1>' +
+                    '<h1>Candidature</h1>' +
                     offer +
                     `<p>Nom: ${req.body.nom}</p>` +
                     `<p>Prénom: ${req.body.prenom}</p>` +
                     `<p>E-mail: ${req.body.email}</p>` +
                     `<p>Téléphone: ${req.body.phone}</p>` +
-                    `<p>Message ajouté.: <br> ${req.body.msg}</p>`,
+                    `<p>Message ajouté: <br> ${req.body.msg}</p>`,
                 attachments: attachmentList
             };
 
             const confirm = {
-                from: 'no-reply@vds.cruiz.fr',
+                from: `"Recrutement VDS Auto" <${process.env.MAIL_USER}>`,
                 to: `${req.body.email}`,
-                subject: 'Candidature spontanée',
+                subject: 'Candidature - VDS Auto',
                 text: `Nom: ${req.body.nom}\n
                 Offre: ${req.body.offerTitle} (${req.body.offer})\n
                 Prénom: ${req.body.prenom}\n
@@ -90,7 +103,7 @@ router.post('/',
                 Téléphone: ${req.body.phone}\n
                 Message ajouté:\n${req.body.msg}`,
                 html:
-                    '<h1>Candidature spontanée</h1>' +
+                    '<h1>Candidature - VDS Auto</h1>' +
                     offer +
                     `<p>Nom: ${req.body.nom}</p>` +
                     `<p>Prénom: ${req.body.prenom}</p>` +
@@ -102,16 +115,16 @@ router.post('/',
 
             transporter.sendMail(message, (error, info) => {
                 if (error) {
-                    return console.log(error);
+                    throw error;
                 }
-                console.log('Message sent: %s', info.messageId);
+                console.log('Message sent: ', info.messageId);
+            });
 
-                transporter.sendMail(confirm, (error, info) => {
-                    if (error) {
-                        return console.log(error);
-                    }
-                    console.log('Message sent: %s', info.messageId);
-                });
+            transporter.sendMail(confirm, (error, info) => {
+                if (error) {
+                    throw error;
+                }
+                console.log('Message sent: ', info.messageId);
             });
 
             res.status(201).json({
