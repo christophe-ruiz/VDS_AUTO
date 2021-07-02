@@ -1,19 +1,14 @@
-const http = require('http');
-const crypto = require('crypto');
-const fs = require("fs");
 const express = require("express");
-const cors = require('cors')
-const morgan = require('morgan')
-const bodyParser = require('body-parser')
+const cors = require('cors');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const logger = require('./utils/logger')
+const logger = require('./utils/logger');
 
-const api = require('./api')
-const hostname = '127.0.0.1';
-
-
-const port = 3000;
+const api = require('./api');
 
 
 ((cb) => {
@@ -32,7 +27,7 @@ const port = 3000;
             fileSize: 25 * (1024 ** 3)
         },
     }));
-    const server = app.listen(process.env.PORT || 9428, () => cb && cb(server))
+    const server = app.listen(process.env.PORT, () => cb && cb(server))
 })((server => {
     logger.info(`Server is listening on port ${server.address().port}`)
 }))

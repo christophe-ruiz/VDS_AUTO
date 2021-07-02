@@ -106,7 +106,7 @@
       <fa-icon (click)="offersUnfolded = !offersUnfolded" *ngIf="!this.offersUnfolded" [icon]="faChevronRight"></fa-icon>
     </div>
     <div *ngIf="this.offersUnfolded" [@fold] class="content">
-      <p class="desc">Gestion des profils à afficher dans le page "<a routerLink="/equipe">L'Équipe</a>".</p>
+      <p class="desc">Gestion des offres à afficher dans le page "<a routerLink="/recrutement">Recrutement</a>".</p>
       <button id="addOffer" (click)="newOffer()"> Ajouter </button>
       <div id="offers-container">
         <div *ngFor="let o of offers" class="offer">
