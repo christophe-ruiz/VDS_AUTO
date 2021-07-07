@@ -1,0 +1,79 @@
+@charset "UTF-8";
+@import "../../../assets/css/colors";
+
+@media screen and (min-width: 1001px) {
+  div {
+    padding: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  #id {
+    font-size: 0.8vw;
+  }
+
+  #title {
+    font-size: 1.2vw;
+  }
+
+  #desc {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  div {
+    padding: 4vw;
+    margin-bottom: 6vw;
+  }
+
+  #id {
+    font-size: 3.5vw;
+  }
+
+  #title {
+    font-size: 4.4vw;
+  }
+
+  #desc {
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $white_grey;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+#id {
+  color: $blue_grey;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+#title {
+  font-family: "Market Sans", sans-serif;
+  color: $black;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.selected {
+  border: 2px $blue solid;
+}
+
+#desc {
+  color: $black;
+  padding: 0;
+  text-align: justify;
+  white-space: pre-wrap;
+}

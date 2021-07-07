@@ -1,0 +1,157 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+#info-marques {
+  display: flex;
+}
+
+#presentation > span {
+  font-family: "Market Sans", sans-serif;
+  color: $black;
+  background: white;
+}
+
+#presentation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Overpass", sans-serif;
+  font-weight: lighter;
+}
+
+.half-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: $white_grey;
+}
+
+p {
+  text-justify: inter-word;
+  text-align: justify;
+}
+
+strong {
+  font-weight: bold;
+  color: $blue;
+}
+
+#services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#services > button {
+  background: $red;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+  border: 2px solid $white_grey;
+}
+
+@media screen and (min-width: 1001px) {
+
+  #presentation {
+    height: 10vw;
+  }
+
+  #presentation > span {
+    font-size: 2vw;
+    border-radius: 5px;
+    padding: 1vw;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 2vw;
+  }
+
+  .half-text-container {
+    padding-top: 4vw;
+    width: 50%;
+  }
+
+  p {
+    padding: 0 6vw;
+    font-size: 1.4vw;
+  }
+
+  #services {
+    height: 15vw;
+  }
+
+  #services > button {
+    font-size: 1.5vw;
+    padding: 0.5vw;
+  }
+
+  #services > p {
+    font-size: 2vw;
+  }
+
+  #services > button:hover {
+    border-color: $red;
+    color: $red;
+    background: white;
+    transition: 0.2s;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  #presentation > span {
+    font-size: 4vw;
+    border-radius: 5px;
+    padding: 1vw;
+  }
+
+  #presentation {
+    height: 15vh;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  #info-marques {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  .half-text-container {
+    padding: 10vw;
+  }
+
+  p {
+    font-size: 4vw;
+  }
+
+  #services {
+    height: 35vw;
+    padding: 8vw;
+  }
+
+  #services > p {
+    text-align: center;
+  }
+
+  #services > button {
+    font-size: 4vw;
+    padding: 2vw;
+  }
+
+}

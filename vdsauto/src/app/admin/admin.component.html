@@ -1,0 +1,133 @@
+<main>
+  <h1>Panneau d'administration</h1>
+  <button (click)="this.disconnect()" id="disconnect">Se déconnecter</button>
+  <section>
+    <div class="header-container">
+      <h2>Équipe</h2>
+      <fa-icon (click)="teamUnfolded = !teamUnfolded" *ngIf="this.teamUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="teamUnfolded = !teamUnfolded" *ngIf="!this.teamUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.teamUnfolded" [@fold] class="content">
+      <p class="desc">Gestion des profils à afficher dans le page "<a routerLink="/equipe">L'Équipe</a>".</p>
+      <button id="add" (click)="newMate()"> Ajouter </button>
+      <div id="team-container">
+        <div *ngFor="let m of team" class="mate">
+          <div class="actions">
+            <p class="cross" (click)="delMate(m)">&#x2716;</p>
+          </div>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input id="prenom" [(ngModel)]="m.prenom" type="text">
+          </div>
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" [(ngModel)]="m.nom" type="text">
+          </div>
+          <div class="field">
+            <label for="title">Titre</label>
+            <input id="title" [(ngModel)]="m.title" type="text">
+          </div>
+          <div class="field">
+            <label for="avi">Illustration</label>
+            <input id="avi" [(ngModel)]="m.avi" type="text">
+          </div>
+        </div>
+      </div>
+      <button (click)="saveTeam()" class="save">Sauvegarder</button>
+      <div id="team-avi-container">
+        <span id="avi-title">Ajouter des illustrations</span>
+        <p id="avi-desc">Sélectionner des images pour les rendre disponibles sur les profils de l'équipe. Après avoir sélectionner
+        les images il suffit d'appuyer sur le bouton "Envoyer" pour les enregistrer.</p>
+        <form enctype="multipart/form-data" id="send-avi">
+          <input (change)="handleFiles($event)" type="file" id="avi-files" name="avis" accept="image/*, image/jpeg" multiple>
+          <button id="avi-send" type="submit" (click)="uploadAvi()">Envoyer</button>
+        </form>
+        <span id="existing-avi-title">Illustrations existantes</span>
+        <div id="existing-avi">
+          <div id="avi-card" *ngFor="let a of this.avis">
+            <p class="cross" (click)="delAvi(a)">&#x2716;</p>
+            <p id="avi-path">{{a}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="header-container">
+      <h2>Bandeau à message</h2>
+      <fa-icon (click)="msgUnfolded = !msgUnfolded" *ngIf="this.msgUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="msgUnfolded = !msgUnfolded" *ngIf="!this.msgUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.msgUnfolded" [@fold] class="content">
+      <p class="desc"> Message à afficher sous les informations de contact. </p>
+
+      <label for="msg">Message</label>
+      <div id="msg-container">
+        <input [(ngModel)]="this.msg" type="text" id="msg">
+      </div>
+      <button class="save" (click)="saveMsg()">Sauvegarder</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="header-container">
+      <h2>Contact et horaires</h2>
+      <fa-icon (click)="contactUnfolded = !contactUnfolded" *ngIf="this.contactUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="contactUnfolded = !contactUnfolded" *ngIf="!this.contactUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.contactUnfolded" [@fold] class="content">
+      <p class="desc"> Gérer les informations de contact et les horaires présentées dans le bandeau d'en-tête. </p>
+
+      <label for="contact-container">Informations</label>
+      <div id="contact-container">
+        <div class="info-container">
+          <label for="phone">Téléphone</label>
+          <input [(ngModel)]="this.phone" type="text" id="phone" class="contact-info">
+        </div>
+        <div class="info-container">
+          <label for="phone">E-mail</label>
+          <input [(ngModel)]="this.mail" type="text" id="mail" class="contact-info">
+        </div>
+        <div class="info-container">
+          <label for="phone">Horaires</label>
+          <input [(ngModel)]="this.hours" type="text" id="schedule" class="contact-info">
+        </div>
+      </div>
+
+      <button class="save" (click)="saveContact()">Sauvegarder</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="header-container">
+      <h2>Offres</h2>
+      <fa-icon (click)="offersUnfolded = !offersUnfolded" *ngIf="this.offersUnfolded" [icon]="faChevronDown"></fa-icon>
+      <fa-icon (click)="offersUnfolded = !offersUnfolded" *ngIf="!this.offersUnfolded" [icon]="faChevronRight"></fa-icon>
+    </div>
+    <div *ngIf="this.offersUnfolded" [@fold] class="content">
+      <p class="desc">Gestion des offres à afficher dans le page "<a routerLink="/recrutement">Recrutement</a>".</p>
+      <button id="addOffer" (click)="newOffer()"> Ajouter </button>
+      <div id="offers-container">
+        <div *ngFor="let o of offers" class="offer">
+          <div class="actions">
+            <p class="cross" (click)="delOffer(o)">&#x2716;</p>
+          </div>
+          <div id="id-container">
+            <label for="offerTitle">Identifiant</label>
+            <p id="offerId">{{o.id}}</p>
+          </div>
+          <div class="offer-content">
+            <label for="offerTitle">Titre</label>
+            <input id="offerTitle" [(ngModel)]="o.title" type="text">
+          </div>
+          <div class="offer-content">
+            <label for="offerDesc">Description</label>
+            <textarea id="offerDesc" [(ngModel)]="o.desc"></textarea>
+          </div>
+        </div>
+      </div>
+      <button (click)="saveOffers()" class="save">Sauvegarder</button>
+    </div>
+  </section>
+</main>

@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '~@angular/material' as mat;
@@ -35,5 +35,38 @@ $vdsauto-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family:
+    "Market Sans";
+  src:
+    url('assets/fonts/Market Sans/regular.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/light.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/medium.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/semibold.ttf') format('truetype'),
+    url('assets/fonts/Market Sans/thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family:
+    "Overpass";
+  src:
+    url('assets/fonts/overpass/regular.otf') format('opentype'),
+    url('assets/fonts/overpass/light.otf') format('opentype'),
+    url('assets/fonts/overpass/semibold.otf') format('opentype'),
+    url('assets/fonts/overpass/thin.otf') format('opentype');
+}
+
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}

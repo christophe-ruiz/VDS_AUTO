@@ -1,0 +1,9 @@
+<div id="tab-list">
+  <div id="burgermenu" *ngIf="mobile" (click)="closed = !closed">
+    <img *ngIf="closed" src="assets/img/burger.png" alt="Ouvrir le menu">
+    <img *ngIf="!closed" src="assets/img/cross.png" alt="Fermer le menu">
+  </div>
+  <div *ngIf="!closed" class="tablist" [class.mobilemenu]="mobile">
+    <app-tab (click)="mobileHidePanel()" *ngFor="let tab of tabs" [path]="tab.path" [title]="tab.title"></app-tab>
+  </div>
+</div>

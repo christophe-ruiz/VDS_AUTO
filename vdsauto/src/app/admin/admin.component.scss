@@ -1,0 +1,317 @@
+@charset "UTF-8";
+@import "../../assets/css/colors";
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  align-self: center;
+  font-size: 2.5vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+  border-bottom: 1px solid $mid_red;
+}
+
+h2 {
+  font-size: 1.5vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+}
+
+input, textarea {
+  font-size: 1vw;
+  border-radius: 5px;
+  padding: 0.5vw;
+  border: 2px solid $cool_grey;
+}
+
+textarea {
+  max-height: 10vw;
+  min-width: 98.5%;
+  max-width: 98.5%;
+  font-family: Roboto, sans-serif;
+  color: $black;
+  white-space: pre-wrap;
+}
+
+section {
+  margin: 1vw 3vw;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+
+
+button {
+
+  padding: 0.75vw;
+  border-radius: 10px;
+  border: 1px $white_grey solid;
+  font-size: 1vw;
+  transition: 0.2s;
+
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#add {
+  margin-bottom: 1vw;
+  background: $blue;
+  color: $white_grey;
+  border: 1px solid $white_grey;
+}
+
+#add:hover {
+  background-color: $white_grey;
+  color: $blue;
+  border-color: $blue;
+}
+
+.save {
+  align-self: center;
+  background: $mid_green;
+  color: $white_grey;
+  margin-top: 2vw;
+}
+
+#disconnect {
+  background: $red;
+  color: white;
+  border: 2px $white_grey solid;
+  align-self: center;
+  transition: .2s;
+}
+
+#disconnect:hover {
+  transform: scale(1.1);
+  transition: .2s;
+}
+
+.save:hover {
+  transition: 0.2s;
+  background-color: $white_grey;
+  color: $mid-green;
+  border: 1px $mid_green solid;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cross {
+  color: $light_red;
+  font-size: 1.5vw;
+  padding: 0;
+  margin: 0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+#offers-container {
+  width: 100%;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+#id-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#id-container > label {
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+  font-size: 1vw;
+}
+
+.offer-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1vw;
+}
+
+.offer-content > label {
+  margin: 0;
+}
+
+#offerId {
+  font-size: 1vw;
+  font-weight: lighter;
+  color: $blue_grey;
+  font-family: "Market Sans", sans-serif;
+
+}
+
+.cross:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.mate, .offer, section {
+  border: 2px solid $white_grey;
+  border-radius: 10px;
+  padding: 1vw;
+}
+
+.desc {
+  font-size: 1vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+}
+
+.desc > a {
+  text-decoration: none;
+  color: $blue;
+  font-weight: bold;
+}
+
+.mate:not(:last-child) {
+  margin-right: 2vw;
+}
+
+.offer {
+  margin-right: 2vw;
+  margin-left: 2vw;
+}
+
+.offer:not(:last-child) {
+  margin-bottom: 2vw;
+}
+
+#team-container {
+  display: flex;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  color: $black;
+}
+
+label {
+  font-size: 1vw;
+  margin-top: .75vw;
+}
+
+.header-container > fa-icon {
+  margin-left: 1vw;
+  font-size: 1.2vw;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+#msg-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: .75vw;
+  margin-bottom: 1vw;
+}
+
+#msg-container > input {
+  border: 2px solid $cool_grey;
+  color: $black;
+  font-size: 1vw;
+  margin-right: 1.5vw;
+  width: 100%;
+}
+
+#contact-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: .75vw;
+  margin-bottom: 2vw;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-container {
+  margin-left: 2vw;
+}
+
+.info-container > input {
+  font-size: 1vw;
+  color: $black;
+}
+
+.contact-info:not(:last-child) {
+  margin-bottom: 1vw;
+}
+
+.contact-info {
+  width: 40%;
+}
+
+#team-avi-container {
+  border-radius: 5px;
+  border: 2px $white_grey solid;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vw;
+}
+
+#avi-title, #existing-avi-title {
+  font-size: 1.75vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: lighter;
+}
+
+#avi-desc {
+  font-size: 1vw;
+  font-family: "Market Sans", sans-serif;
+  text-align: justify;
+  margin-bottom: 2vw;
+}
+
+#avi-files {
+  border: none;
+}
+
+#send-avi {
+  display: flex;
+  margin-bottom: 2vw;
+}
+
+#existing-avi {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1vw;
+}
+
+#avi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  margin-top: 2vw;
+
+  border: 1px $cool_grey solid;
+  border-radius: 5px;
+}
+
+#avi-card:not(:last-child) {
+  margin-right: 3vw;
+}

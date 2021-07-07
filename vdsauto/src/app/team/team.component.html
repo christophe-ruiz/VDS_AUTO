@@ -1,0 +1,17 @@
+<main>
+  <h1> L'Équipe </h1>
+  <div id="team-container">
+    <div class="mechanic" *ngFor="let m of team">
+      <img alt="Illustration mécanicien" src="{{this.serverUrl + '/mechanics/avi/' + m.avi}}">
+      <div id="name">
+        <span> {{m.prenom}} </span>
+        <span> {{m.nom}} </span>
+      </div>
+      <p class="title"> {{m.title}} </p>
+    </div>
+  </div>
+  <section>
+    Plus de {{this.years}} ans d'expérience.
+  </section>
+  <img id="cadre" src="assets/img/cadre.jpg" alt="Cadre, Histoire du garage">
+</main>

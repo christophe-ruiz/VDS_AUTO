@@ -1,0 +1,45 @@
+{
+  "name": "vdsautoserver",
+  "version": "1.0.0",
+  "description": "Server for VDS Auto website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe-ruiz/VDS_AUTO.git"
+  },
+  "keywords": [
+    "VDS",
+    "Auto",
+    "Garage",
+    "Saint-Chamas",
+    "Mechanic"
+  ],
+  "author": "Christophe RUIZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christophe-ruiz/VDS_AUTO/issues"
+  },
+  "homepage": "https://github.com/christophe-ruiz/VDS_AUTO#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "http": "^0.0.1-security",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.1"
+  },
+  "devDependencies": {
+    "joi": "^17.4.0"
+  }
+}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+#msg-container {
+  border-radius: 5px;
+  border: 3px solid $yellow;
+  background: $dark_yellow;
+  color: #454D51;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#msg {
+  padding: 0;
+  margin: 1vw 2vw;
+  font-size: 1vw;
+  font-family: "Market Sans", sans-serif;
+}
+
+fa-icon {
+  margin-right: .5vw;
+  font-size: 1vw;
+}
+
+#close {
+  display: flex;
+  color: $light_red;
+  align-items: center;
+  cursor: pointer;
+}
+
+span {
+  font-size: 1vw;
+  font-family: "Market Sans", sans-serif;
+  font-weight: bold;
+  margin-right: 2vw;
+}

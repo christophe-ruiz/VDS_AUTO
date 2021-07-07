@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@import "src/assets/css/colors";
+
+@media screen and (min-width: 1001px) {
+  article {
+    font-size: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  h1 {
+    font-size: 2vw;
+    padding-bottom: 0.5vw;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+  }
+
+  h3 {
+    font-size: 1.25vw;
+  }
+
+  section {
+    width: 50%;
+  }
+
+  #cookies > p {
+    margin-bottom: 1vw;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  article {
+    font-size: 4vw;
+    margin-bottom: 6vw;
+  }
+
+  h1 {
+    font-size: 6vw;
+    padding-bottom: 2vw;
+  }
+
+  h2 {
+    font-size: 4.5vw;
+  }
+
+  h3 {
+    font-size: 4.25vw;
+  }
+
+  section {
+    width: 75%;
+  }
+
+  #cookies > p {
+    margin-bottom: 4vw;
+  }
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $black;
+}
+
+h1 {
+  text-transform: uppercase;
+  border-bottom: $blue 1px solid;
+  font-family: "Overpass", sans-serif;
+}
+
+#host {
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Market Sans", sans-serif;
+  color: $blue;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+section > p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+}
