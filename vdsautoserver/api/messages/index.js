@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
     try {
         const m = Message.get()
         console.log("GET MESSAGE")
-        console.log(m)
         res.status(200).json(m.msg)
     } catch (e) {
         manageAllErrors(res, e)
