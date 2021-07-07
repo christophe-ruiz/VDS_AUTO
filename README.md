@@ -25,7 +25,7 @@ Projet réalisé avec [Angular](https://angular.io) et [Node.js](https://nodejs.
 |npm                        |7.16.0             |
 |node                       |14.15.4            |
 
-##Auteur
+## Auteur
 Christophe RUIZ \
 SI3, Polytech Nice Sophia \
 2020-2021
